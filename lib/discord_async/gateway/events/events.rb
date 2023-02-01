@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'interaction_create'
 require_relative 'application_command_permissions_update'
 require_relative 'auto_moderation_action_execution'
 require_relative 'auto_moderation_rule_create'
@@ -35,7 +36,6 @@ require_relative 'hello'
 require_relative 'integration_create'
 require_relative 'integration_delete'
 require_relative 'integration_update'
-require_relative 'interaction_create'
 require_relative 'invalid_session'
 require_relative 'invite_create'
 require_relative 'invite_delete'

@@ -92,7 +92,7 @@ module DiscordAsync
       attribute? :max_video_channel_users, Types::Coercible::Integer
       attribute? :approximate_member_count, Types::Coercible::Integer
       attribute? :approximate_presence_count, Types::Coercible::Integer
-      attribute? :welcome_screen, WelcomeScreen
+      attribute? :welcome_screen, Guild::WelcomeScreen
       attribute? :nsfw_level, Types::Coercible::Integer
       attribute? :stickers, Resources::Sticker
       attribute? :premium_progress_bar_enabled, Types::Bool

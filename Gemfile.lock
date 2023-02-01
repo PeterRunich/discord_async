@@ -197,6 +197,7 @@ DEPENDENCIES
   rbnacl
   rubocop (~> 1.41)
   spy
+  zeitwerk
 
 BUNDLED WITH
    2.3.26

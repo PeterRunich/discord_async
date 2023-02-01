@@ -1,5 +1,5 @@
 require_relative 'base'
-require_relative '../../resources/stage_instance'
+require_relative '../../resources/interaction/interaction'
 
 module DiscordAsync
   class Gateway

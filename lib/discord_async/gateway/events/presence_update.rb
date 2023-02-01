@@ -1,5 +1,4 @@
 require_relative 'base'
-require_relative 'dry-struct'
 require_relative '../../types'
 require_relative '../../resources/snowflake'
 require_relative '../../resources/user/user'

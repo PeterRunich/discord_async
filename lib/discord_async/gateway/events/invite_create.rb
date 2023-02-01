@@ -17,7 +17,7 @@ module DiscordAsync
         attribute :max_uses, Types::Coercible::Integer
         attribute? :target_type, Types::Coercible::Integer
         attribute? :target_user, Resources::User
-        attribute? :target_application, Resources::Application::PartialApplication
+        attribute? :target_application, Resources::PartialApplication
         attribute :temporary, Types::Bool
         attribute :uses, Types::Coercible::Integer
       end

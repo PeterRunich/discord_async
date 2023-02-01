@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7176d6d8-f7af-4a17-bec5-f4538d1e7f86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.rubocop.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CODE_OF_CONDUCT.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rakefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/console" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/setup" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discord_async.gemspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/discord_async.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/discord_async/version.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sig/discord_async.rbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_discord_async.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -458,7 +441,7 @@
       <workItem from="1675157068809" duration="13183000" />
       <workItem from="1675239726469" duration="13987000" />
       <workItem from="1675254308236" duration="36000" />
-      <workItem from="1675254376966" duration="959000" />
+      <workItem from="1675254376966" duration="1842000" />
     </task>
     <servers />
   </component>

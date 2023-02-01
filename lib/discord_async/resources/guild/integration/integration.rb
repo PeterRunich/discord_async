@@ -46,7 +46,7 @@ module DiscordAsync
         attribute? :expire_behavior, IntegrationExpireBehaviors
         attribute? :expire_grace_period, Types::Coercible::Integer
         attribute? :user, User
-        attribute? :account, IntegrationAccount
+        attribute? :account, Integration::IntegrationAccount
         attribute? :synced_at, Types::TimestampISO8601
         attribute? :subscriber_count, Types::Coercible::Integer
         attribute? :revoked, Types::Bool

@@ -11,7 +11,7 @@ module DiscordAsync
       class MessageCreate < Base
         attribute? :guild_id, Types::Snowflake
         attribute? :member, Resources::Guild::GuildMember
-        attribute :mentions, Types::Array.of(User)
+        attribute :mentions, Types::Array.of(Resources::User)
         attribute :message, Resources::Channel::Message
 
         def initialize(attributes)

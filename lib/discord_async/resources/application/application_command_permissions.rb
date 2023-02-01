@@ -4,7 +4,7 @@ require_relative '../snowflake'
 
 module DiscordAsync
   module Resources
-    class Application
+    class Application < Dry::Struct
       class ApplicationCommandPermissions < Dry::Struct
         transform_keys(&:to_sym)
 

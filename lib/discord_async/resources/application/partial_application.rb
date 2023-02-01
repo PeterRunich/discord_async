@@ -5,7 +5,7 @@ require_relative 'application_command_option_choice'
 
 module DiscordAsync
   module Resources
-    class Application
+    class Application < Dry::Struct
       class PartialApplication < Dry::Struct
         transform_keys(&:to_sym)
 

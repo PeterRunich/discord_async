@@ -26,6 +26,7 @@ gem 'falcon'
 gem 'rack'
 gem 'dry-configurable', '~> 1.0.1'
 gem 'dry-types', '~> 1.7.0', require: false
-gem 'dry-struct', '~> 1.6.0', require: false
+gem 'dry-struct', '~> 1.6.0'
+gem 'zeitwerk'
 gem 'dry-validation', '~> 1.10.0', require: false
 

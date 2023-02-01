@@ -5,7 +5,7 @@ require_relative 'application_command_permissions'
 
 module DiscordAsync
   module Resources
-    class Application
+    class Application < Dry::Struct
       class GuildApplicationCommandPermissions < Dry::Struct
         transform_keys(&:to_sym)
 

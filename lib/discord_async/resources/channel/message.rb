@@ -1,4 +1,5 @@
 require 'dry-struct'
+require_relative '../interaction/message_interaction'
 require_relative '../../types'
 require_relative '../../resources/snowflake'
 require_relative '../../resources/user/user'
@@ -11,10 +12,10 @@ require_relative 'message_activity'
 require_relative '../application/application'
 require_relative 'message_types'
 require_relative 'message_reference'
-require_relative '../interaction/message_interaction'
 require_relative '../channel/channel'
 require_relative '../sticker/sticker'
 require_relative '../sticker/sticker_format'
+require_relative '../sticker/sticker_item'
 require_relative '../channel/role_subscription_data_object'
 
 module DiscordAsync
@@ -47,7 +48,7 @@ module DiscordAsync
         attribute? :referenced_message, Message.optional
         attribute? :interaction, Interaction::MessageInteraction
         attribute? :thread, Channel
-        attribute? :components,
+        #attribute? :components, TODO: complex check Discord doc
         attribute? :sticker_items, Types::Array.of(Sticker::StickerItem)
         attribute? :stickers, Types::Array.of(Sticker)
         attribute? :position, Types::Coercible::Integer

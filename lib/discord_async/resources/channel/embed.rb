@@ -24,7 +24,7 @@ module DiscordAsync
         attribute :video, EmbedVideo
         attribute :provider, EmbedProvider
         attribute :author, EmbedAuthor
-        attribute :fields, Array.of(EmbedField)
+        attribute :fields, Types::Array.of(EmbedField)
       end
     end
   end

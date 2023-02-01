@@ -3,7 +3,7 @@ require_relative '../../types'
 
 module DiscordAsync
   module Resources
-    class Application
+    class Application < Dry::Struct
       class ApplicationCommandOptionChoice < Dry::Struct
         transform_keys(&:to_sym)
 

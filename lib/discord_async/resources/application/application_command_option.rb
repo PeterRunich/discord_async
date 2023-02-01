@@ -5,7 +5,7 @@ require_relative 'application_command_option_choice'
 
 module DiscordAsync
   module Resources
-    class Application
+    class Application < Dry::Struct
       class ApplicationCommandOption < Dry::Struct
         ApplicationCommandOptionTypes = Types::Integer.enum(
           1 => :sub_command,
