@@ -1,0 +1,1 @@
+AllowedMentions = Data.define(:parse, :roles, :users, :replied_user)

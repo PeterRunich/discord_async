@@ -1,0 +1,1 @@
+Ban = Data.define(:reason, :user)

@@ -1,0 +1,1 @@
+GuildScheduledEventUser = Data.define(:guild_scheduled_event_id, :user, :member)

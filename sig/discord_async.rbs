@@ -1,0 +1,7 @@
+module DiscordAsync
+  VERSION: String
+
+  class Gateway
+    def initialize: (token: String) -> void
+  end
+end

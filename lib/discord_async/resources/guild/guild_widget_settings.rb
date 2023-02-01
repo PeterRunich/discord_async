@@ -1,0 +1,1 @@
+GuildWidgetSettings = Data.define(:enabled, :channel_id)

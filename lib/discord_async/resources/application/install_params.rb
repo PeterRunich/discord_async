@@ -1,0 +1,1 @@
+InstallParams = Data.define(:scopes, :permissions)

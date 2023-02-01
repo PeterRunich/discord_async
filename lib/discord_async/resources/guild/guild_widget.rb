@@ -1,0 +1,1 @@
+GuildWidget = Data.define(:id, :name, :instant_invite, :channels, :members, :presence_count)

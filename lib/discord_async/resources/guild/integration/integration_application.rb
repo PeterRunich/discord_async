@@ -1,0 +1,1 @@
+IntegrationApplication = Data.define(:id, :name, :icon, :description, :bot)
