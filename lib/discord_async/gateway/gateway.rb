@@ -3,10 +3,11 @@ require 'async'
 require 'async/http'
 require 'async/websocket'
 require 'logger'
-
+require 'dry-struct'
 require_relative '../event_observer'
 require_relative '../observer'
 require_relative 'opcodes'
+require_relative 'payload'
 
 module DiscordAsync
   class Gateway
@@ -48,7 +49,7 @@ module DiscordAsync
 
         Async do
           e = catch_hello_event.wait
-          start_heart_beat_loop(e['d']['heartbeat_interval'] / 1000.0)
+          start_heart_beat_loop(e.d.heartbeat_interval_in_seconds)
         end
 
         send_identify identify_data
@@ -89,11 +90,11 @@ module DiscordAsync
     def start_receive_messages
       Async do
         while (msg = @connection.read)
-          e = JSON.parse(msg)
-          pp e
+          payload = Payload.new(JSON.parse(msg))
+          @logger.debug payload
 
-          event_observer.notify e
-          event_repeater.notify e
+          event_observer.notify payload
+          event_repeater.notify payload
         end
         @logger.debug 'start_receive_messages ended'
       end

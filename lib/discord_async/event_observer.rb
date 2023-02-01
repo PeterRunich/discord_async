@@ -24,13 +24,13 @@ module DiscordAsync
     end
 
     def notify(event)
-      case event['op']
+      case event.op
       when 0
-        @subscribers.fetch(event['op'])[event['t'].to_sym]&.each { |sub| Async { sub[:callback].call(event) } }
-        @subscribers.fetch(event['op'])[event['t'].to_sym]&.delete_if { |sub| sub[:once] }
+        @subscribers.fetch(event.op)[event.t.to_sym]&.each { |sub| Async { sub[:callback].call(event) } }
+        @subscribers.fetch(event.op)[event.t.to_sym]&.delete_if { |sub| sub[:once] }
       else
-        @subscribers.fetch(event['op']).each { |sub| Async { sub[:callback].call(event) } }
-        @subscribers.fetch(event['op']).delete_if { |sub| sub[:once] }
+        @subscribers.fetch(event.op).each { |sub| Async { sub[:callback].call(event) } }
+        @subscribers.fetch(event.op).delete_if { |sub| sub[:once] }
       end
     end
   end

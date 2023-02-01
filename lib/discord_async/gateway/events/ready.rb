@@ -12,7 +12,7 @@ module DiscordAsync
       class Ready < Base
         attribute :v, Types::Coercible::Integer
         attribute :user, Resources::User
-        attribute :guilds, Resources::Guild::UnavailableGuild
+        attribute :guilds, Types::Array.of(Resources::Guild::UnavailableGuild)
         attribute :session_id, Types::Coercible::String
         attribute :resume_gateway_url, Types::Coercible::String
         attribute? :shard, Types::Array.of(Types::Coercible::Integer)

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require 'discord_async/resources/user/user_alt_tech'
+require 'discord_async/resources/user/user'
 require 'discord_async/resources/snowflake'
 
-describe DiscordAsync::User do
+describe DiscordAsync::Resources::User do
   it 'creates with not nil attributes' do
     data = {
       id: '364453157511888896',
@@ -25,7 +25,7 @@ describe DiscordAsync::User do
       public_flags: 256
     }
 
-    user = DiscordAsync::User.new(**data)
+    user = DiscordAsync::Resources::User.new(**data)
 
     assert_kind_of DiscordAsync::Snowflake, user.id
     assert_kind_of String, user.username
@@ -50,10 +50,11 @@ describe DiscordAsync::User do
       id: '364453157511888896',
       username: 'sharn1',
       discriminator: '8807',
-      banner_color: '#171a1a'
+      banner_color: '#171a1a',
+      avatar: nil
     }
 
-    user = DiscordAsync::User.new(**data)
+    user = DiscordAsync::Resources::User.new(**data)
 
     [
       user.avatar,

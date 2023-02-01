@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'dry-struct'
 require_relative 'interaction_create'
 require_relative 'application_command_permissions_update'
 require_relative 'auto_moderation_action_execution'

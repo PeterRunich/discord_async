@@ -1,4 +1,5 @@
 require 'dry-struct'
+require 'dry-struct'
 
 module DiscordAsync
   class Gateway

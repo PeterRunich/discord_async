@@ -9,7 +9,7 @@ module DiscordAsync
       attribute :id, Types::Snowflake
       attribute :username, Types::Coercible::String
       attribute :discriminator, Types::Coercible::String
-      attribute :banner_color, Types::Coercible::String
+      attribute? :banner_color, Types::Coercible::String.optional
       attribute :avatar, Types::Coercible::String.optional
 
       attribute? :bot, Types::Bool

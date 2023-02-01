@@ -32,7 +32,7 @@ module DiscordAsync
 
         attribute :payload, Resources::Guild::UnavailableGuild | AvailableGuild
 
-        def initialize(attributes)
+        def self.new(attributes)
           attributes.transform_keys!(&:to_sym)
 
           if attributes.fetch(:unavailable, false)
@@ -51,10 +51,13 @@ module DiscordAsync
               guild_scheduled_events: attributes[:guild_scheduled_events]
             }
 
-            super(payload: AvailableGuild.new(arguments))
+
+            attributes[:payload] = AvailableGuild.new(arguments)
           else
-            super(payload: Resources::Guild::UnavailableGuild.new(attributes))
+            attributes[:payload] = Resources::Guild::UnavailableGuild.new(attributes)
           end
+
+          super(attributes)
         end
       end
     end

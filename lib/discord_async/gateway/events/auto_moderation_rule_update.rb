@@ -1,3 +1,4 @@
+require 'dry-struct'
 require_relative 'base'
 require_relative '../../resources/auto_moderation/auto_moderation_rule'
 
