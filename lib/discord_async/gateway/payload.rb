@@ -5,7 +5,6 @@ require 'dry-types'
 require_relative 'opcodes'
 require_relative 'events/events'
 require_relative 'events/base'
-require 'debug'
 # module Types
 #   include Dry.Types()
 #   Event = Types.Constructor(lambda do |event_obj|

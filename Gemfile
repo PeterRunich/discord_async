@@ -4,15 +4,13 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem "debug"
 gem 'rake', '~> 13.0', require: false
-
 gem 'rubocop', '~> 1.41', require: false
-
 gem 'minitest', '~> 5.16', require: false
 gem 'minitest-reporters', '~> 1.5.0', require: false
 gem 'color_pound_spec_reporter', '~> 0.0.9', require: false
 gem 'minitest-power_assert'
-gem "debug", ">= 1.0.0"
 gem "minitest-stub_any_instance"
 gem 'spy'
 gem 'rbnacl'

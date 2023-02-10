@@ -1,7 +1,6 @@
 require 'minitest/autorun'
 require 'discord_async/gateway/gateway'
 require 'json'
-require 'debug'
 require 'spy/integration'
 
 describe DiscordAsync::Gateway do

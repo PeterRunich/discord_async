@@ -39,28 +39,29 @@ module DiscordAsync
       @event_repeater = Observer.new
     end
 
+    # Public interface life cycle
     def start(raw_url, version, encoding, identify_data)
       identify_data = Identify[**identify_data]
 
       Async do
         started = Async::Condition.new
 
-        establish_connection(form_connection_url(raw_url, version, encoding, identify_data.compress))
+        establish_connection(
+          form_connection_url(raw_url, version, encoding, identify_data.compress)
+        )
 
         Async do
-          e = catch_hello_event.wait
-          start_heart_beat_loop(e.d.heartbeat_interval_in_seconds)
+          start_heart_beat_loop(
+            catch_hello_event.d.heartbeat_interval_in_seconds
+          )
         end
 
         send_identify identify_data
 
-        Async do
-          e = catch_ready_event.wait
-          pp e
-          started.signal e
-        end
+        Async { started.signal catch_ready_event }
 
         start_receive_messages
+
         started.wait
       end.wait
     end
@@ -71,17 +72,7 @@ module DiscordAsync
       @logger.debug 'stop ended'
     end
 
-    def send_voice_state_update(guild_id, channel_id, self_mute: false, self_deaf: false)
-      @connection.write({ op: 4, d: { guild_id:, channel_id:, self_mute:, self_deaf: } }.to_json)
-      @connection.flush
-    end
-
-    private
-
-    def form_connection_url(raw_url, version, encoding, compress)
-      "#{URI(raw_url).scheme}://#{URI(raw_url).host}?v=#{version}&encoding=#{encoding}#{compress ? '&compress=zlib-stream' : ''}"
-    end
-
+    # Init
     def establish_connection(url, ws_client: Async::WebSocket::Client)
       endpoint = Async::HTTP::Endpoint.parse url, alpn_protocols: Async::HTTP::Protocol::HTTP11.names
       @connection = ws_client.connect endpoint
@@ -100,14 +91,6 @@ module DiscordAsync
       end
     end
 
-    def catch_hello_event
-      condition = Async::Condition.new
-
-      event_observer.subscribe opcode: 10, callback: proc { |e| condition.signal e }, once: true
-
-      Async { condition.wait }
-    end
-
     def start_heart_beat_loop(heartbeat_interval)
       Async do
         sleep heartbeat_interval * rand
@@ -119,6 +102,12 @@ module DiscordAsync
         end
         @logger.debug 'start_heart_beat_loop ended'
       end
+    end
+
+    # Send
+    def send_voice_state_update(guild_id, channel_id, self_mute: false, self_deaf: false)
+      @connection.write({ op: 4, d: { guild_id:, channel_id:, self_mute:, self_deaf: } }.to_json)
+      @connection.flush
     end
 
     def send_heart_beat
@@ -137,12 +126,26 @@ module DiscordAsync
       @connection.flush
     end
 
+    # Catch
+    def catch_hello_event
+      condition = Async::Condition.new
+
+      event_observer.subscribe opcode: 10, callback: proc { |e| condition.signal e }, once: true
+
+      Async { condition.wait }.wait
+    end
+
     def catch_ready_event
       condition = Async::Condition.new
 
       event_observer.subscribe opcode: 0, event_name: 'READY', callback: proc { |e| condition.signal e }, once: true
 
-      Async { condition.wait }
+      Async { condition.wait }.wait
+    end
+
+    # Helper
+    def form_connection_url(raw_url, version, encoding, compress)
+      "#{URI(raw_url).scheme}://#{URI(raw_url).host}?v=#{version}&encoding=#{encoding}#{compress ? '&compress=zlib-stream' : ''}"
     end
   end
 end
