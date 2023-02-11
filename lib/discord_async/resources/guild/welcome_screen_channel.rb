@@ -2,10 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Guild < Dry::Struct
-      class WelcomeScreenChannel < Dry::Struct
-        transform_keys(&:to_sym)
-
+    class Guild < StructBase
+      class WelcomeScreenChannel < StructBase
         attribute :channel_id, Types::Snowflake
         attribute :description, Types::Coercible::String
         attribute :emoji_id, Types::Snowflake.optional

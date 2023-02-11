@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class AuditLog < Dry::Struct
+    class AuditLog < StructBase
       AuditLogEvents = Types::Integer.enum(
         1 => :guild_update,
         10 => :channel_create,

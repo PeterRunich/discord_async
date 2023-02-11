@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Interaction < Dry::Struct
+    class Interaction < StructBase
       attribute :id, Types::Snowflake
       attribute :application_id, Types::Snowflake
       attribute :type, InteractionTypes

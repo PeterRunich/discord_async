@@ -2,9 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Application < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class Application < StructBase
       attribute :id, Types::Snowflake
       attribute :name, Types::Coercible::String
       attribute :icon, Types::Coercible::String.optional
@@ -28,9 +26,7 @@ module DiscordAsync
       attribute? :role_connections_verification_url, Types::Coercible::String
     end
 
-    class PartialApplication < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class PartialApplication < StructBase
       attribute :id, Types::Snowflake
       attribute? :name, Types::Coercible::String
       attribute? :icon, Types::Coercible::String.optional

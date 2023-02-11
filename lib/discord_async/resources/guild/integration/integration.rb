@@ -2,11 +2,9 @@
 
 module DiscordAsync
   module Resources
-    class Guild < Dry::Struct
-      class Integration < Dry::Struct
+    class Guild < StructBase
+      class Integration < StructBase
         IntegrationExpireBehaviors = Types::Integer.enum(0 => :remove_role, 1 => :kick)
-
-        transform_keys(&:to_sym)
 
         attribute :id, Types::Snowflake
         attribute :name, Types::Coercible::String
@@ -26,10 +24,8 @@ module DiscordAsync
         attribute? :scopes, Types::Array.of(Types::Coercible::String)
       end
 
-      class PartialIntegration < Dry::Struct
+      class PartialIntegration < StructBase
         IntegrationExpireBehaviors = Types::Integer.enum(0 => :remove_role, 1 => :kick)
-
-        transform_keys(&:to_sym)
 
         attribute :id, Types::Snowflake
         attribute? :name, Types::Coercible::String

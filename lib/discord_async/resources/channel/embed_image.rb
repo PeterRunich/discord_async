@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class EmbedImage < Dry::Struct
+    class Channel < StructBase
+      class EmbedImage < StructBase
         attribute :url, Types::Coercible::String
         attribute? :proxy_url, Types::Coercible::String
         attribute? :height, Types::Coercible::Integer

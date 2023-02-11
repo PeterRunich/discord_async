@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class MessageActivity < Dry::Struct
+    class Channel < StructBase
+      class MessageActivity < StructBase
         MessageActivityTypes = Types::Integer.enum(1 => :join, 2 => :spectate, 3 => :listen, 5 => :join_request)
 
         attribute :type, MessageActivityTypes

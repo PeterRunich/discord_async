@@ -2,15 +2,13 @@
 
 module DiscordAsync
   module Resources
-    class Guild < Dry::Struct
+    class Guild < StructBase
       module ScheduledEvent
-        class GuildScheduledEvent < Dry::Struct
+        class GuildScheduledEvent < StructBase
           GuildScheduledEventEntityTypes = Types::Integer.enum(1 => :stage_instance, 2 => :voice, 3 => :external)
           GuildScheduledEventStatus = Types::Integer.enum(1 => :scheduled, 2 => :active, 3 => :completed,
                                                           4 => :canceled)
           GuildScheduledEventPrivacyLevel = Types::Integer.enum(2 => :guild_only)
-
-          transform_keys(&:to_sym)
 
           attribute :id, Types::Snowflake
           attribute :guild_id, Types::Snowflake

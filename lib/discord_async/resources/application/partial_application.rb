@@ -2,10 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Application < Dry::Struct
-      class PartialApplication < Dry::Struct
-        transform_keys(&:to_sym)
-
+    class Application < StructBase
+      class PartialApplication < StructBase
         attribute :id, Types::Snowflake
         attribute? :flags, Types::Coercible::Integer
       end

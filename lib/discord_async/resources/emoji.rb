@@ -2,9 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Emoji < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class Emoji < StructBase
       attribute :id, Types::Snowflake.optional
       attribute :name, Types::String.optional
       attribute? :roles, Types::Array.of(Types::Snowflake)
@@ -15,9 +13,7 @@ module DiscordAsync
       attribute? :available, Types::Bool
     end
 
-    class PartialEmoji < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class PartialEmoji < StructBase
       attribute :id, Types::Snowflake.optional
       attribute? :name, Types::String.optional
       attribute? :roles, Types::Array.of(Types::Snowflake)

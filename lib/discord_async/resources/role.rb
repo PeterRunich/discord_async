@@ -2,9 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Role < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class Role < StructBase
       attribute :id, Types::Snowflake
       attribute :name, Types::Coercible::String
       attribute :color, Types::Coercible::Integer

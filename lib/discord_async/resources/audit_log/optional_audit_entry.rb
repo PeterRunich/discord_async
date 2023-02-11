@@ -2,10 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class AuditLog < Dry::Struct
-      class OptionalAuditEntry < Dry::Struct
-        transform_keys(&:to_sym)
-
+    class AuditLog < StructBase
+      class OptionalAuditEntry < StructBase
         attribute :application_id, Types::Snowflake
         attribute :auto_moderation_rule_name, Types::Coercible::String
         attribute :auto_moderation_rule_trigger_type, Types::Coercible::String

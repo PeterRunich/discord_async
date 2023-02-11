@@ -2,10 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Application < Dry::Struct
-      class ApplicationCommandPermissions < Dry::Struct
-        transform_keys(&:to_sym)
-
+    class Application < StructBase
+      class ApplicationCommandPermissions < StructBase
         attribute :id, Types::Snowflake
         attribute :type, Types::Coercible::Integer
         attribute :permissions, Types::Bool

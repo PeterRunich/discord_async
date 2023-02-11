@@ -3,7 +3,7 @@
 module DiscordAsync
   module Resources
     module Voice
-      class VoiceState < Dry::Struct
+      class VoiceState < StructBase
         attribute? :guild_id, Types::Snowflake
         attribute :channel_id, Types::Snowflake.optional
         attribute :user_id, Types::Snowflake

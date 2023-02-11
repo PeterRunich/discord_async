@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class Message < Dry::Struct
+    class Channel < StructBase
+      class Message < StructBase
         MessageTypes = Types::Integer.enum(
           0 => :default,
           1 => :recipient_add,

@@ -3,11 +3,9 @@
 module DiscordAsync
   module Resources
     module AutoModeration
-      class AutoModerationRule < Dry::Struct
+      class AutoModerationRule < StructBase
         RuleEventTypes   = Types::Integer.enum(1 => :message_send)
         RuleTriggerTypes = Types::Integer.enum(1 => :keyword, 3 => :spam, 4 => :keyword_preset, 5 => :mention_spam)
-
-        transform_keys(&:to_sym)
 
         attribute :id, Types::Snowflake
         attribute :guild_id, Types::Snowflake

@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class StageInstance < Dry::Struct
+    class StageInstance < StructBase
       PrivacyLevel = Types::Integer.enum(1 => :public, 2 => :guild_only)
 
       attribute :id, Types::Snowflake

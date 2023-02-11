@@ -2,10 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class ThreadMetadata < Dry::Struct
-        transform_keys(&:to_sym)
-
+    class Channel < StructBase
+      class ThreadMetadata < StructBase
         attribute :archived, Types::Bool
         attribute :auto_archive_duration, Types::Coercible::Integer
         attribute :archive_timestamp, Types::TimestampISO8601

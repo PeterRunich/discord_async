@@ -2,9 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Guild < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class Guild < StructBase
       attribute :id, Types::Snowflake
       attribute :name, Types::Coercible::String
       attribute :icon, Types::Coercible::String.optional
@@ -47,9 +45,7 @@ module DiscordAsync
       attribute :premium_progress_bar_enabled, Types::Bool
     end
 
-    class PartialGuild < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class PartialGuild < StructBase
       attribute :id, Types::Snowflake
       attribute? :name, Types::Coercible::String
       attribute? :icon, Types::Coercible::String.optional

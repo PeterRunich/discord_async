@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class DefaultReaction < Dry::Struct
+    class Channel < StructBase
+      class DefaultReaction < StructBase
         attribute :emoji_id, Types::Snowflake.optional
         attribute :emoji_name, Types::Coercible::String.optional
       end

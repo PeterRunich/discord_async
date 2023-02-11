@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Interaction < Dry::Struct
-      class ApplicationCommandData < Dry::Struct
+    class Interaction < StructBase
+      class ApplicationCommandData < StructBase
         attribute :id, Types::Snowflake
         attribute :name, Types::Coercible::String
         attribute :type, ApplicationCommand::ApplicationCommandTypes

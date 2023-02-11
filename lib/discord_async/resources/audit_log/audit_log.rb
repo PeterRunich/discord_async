@@ -2,9 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class AuditLog < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class AuditLog < StructBase
       attribute :application_commands, Types::Array.of(ApplicationCommand)
       attribute :audit_log_entries, Types::Array.of(AuditLogEntry)
       attribute :auto_moderation_rules, Types::Array.of(AutoModerationRule)

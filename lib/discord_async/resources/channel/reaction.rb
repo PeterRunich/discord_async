@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class Reaction < Dry::Struct
+    class Channel < StructBase
+      class Reaction < StructBase
         attribute :count, Types::Coercible::Integer
         attribute :me, Types::Bool
         attribute :emoji, PartialEmoji

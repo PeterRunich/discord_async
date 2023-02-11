@@ -2,10 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class ThreadMember < Dry::Struct
-        transform_keys(&:to_sym)
-
+    class Channel < StructBase
+      class ThreadMember < StructBase
         attribute? :id, Types::Snowflake
         attribute? :user_id, Types::Snowflake
         attribute :join_timestamp, Types::TimestampISO8601

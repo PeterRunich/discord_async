@@ -2,11 +2,9 @@
 
 module DiscordAsync
   module Resources
-    class Guild < Dry::Struct
+    class Guild < StructBase
       module ScheduledEvent
-        class GuildScheduledEventEntityMetadata < Dry::Struct
-          transform_keys(&:to_sym)
-
+        class GuildScheduledEventEntityMetadata < StructBase
           attribute? :location, Types::Coercible::String
         end
       end

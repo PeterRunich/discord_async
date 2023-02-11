@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class Attachment < Dry::Struct
+    class Channel < StructBase
+      class Attachment < StructBase
         attribute :id, Types::Snowflake
         attribute :filename, Types::Coercible::String
         attribute? :description, Types::Coercible::String

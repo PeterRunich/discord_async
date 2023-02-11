@@ -2,10 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class AuditLog < Dry::Struct
-      class AuditLogEntry < Dry::Struct
-        transform_keys(&:to_sym)
-
+    class AuditLog < StructBase
+      class AuditLogEntry < StructBase
         attribute :target_id, Types::Coercible::String
         attribute? :changes, Types::Array.of(AuditLogChange)
         attribute :user_id, Types::Snowflake.optional

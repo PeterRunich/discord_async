@@ -2,10 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Sticker < Dry::Struct
-      class StickerItem < Dry::Struct
-        transform_keys(&:to_sym)
-
+    class Sticker < StructBase
+      class StickerItem < StructBase
         attribute :id, Types::Snowflake
         attribute :name, Types::Coercible::String
         attribute :format_type, StickerFormat

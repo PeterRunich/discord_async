@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class Embed < Dry::Struct
+    class Channel < StructBase
+      class Embed < StructBase
         attribute :title, Types::Coercible::String
         attribute :type, Types::Coercible::Symbol
         attribute :description, Types::Coercible::String

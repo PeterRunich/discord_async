@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Webhook < Dry::Struct
+    class Webhook < StructBase
       WebhookTypes = Types::Integer.enum(1 => :incoming, 2 => :channel_follower, 3 => :application)
 
       attribute :id, Types::Snowflake

@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class ForumTag < Dry::Struct
+    class Channel < StructBase
+      class ForumTag < StructBase
         attribute :id, Types::Snowflake
         attribute :name, Types::Coercible::String
         attribute :moderated, Types::Bool

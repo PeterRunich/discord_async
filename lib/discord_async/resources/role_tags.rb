@@ -2,9 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class RoleTags < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class RoleTags < StructBase
       attribute? :bot_id, Types::Snowflake
       attribute? :integration_id, Types::Snowflake
       attribute? :subscription_listing_id, Types::Snowflake

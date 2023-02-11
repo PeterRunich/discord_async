@@ -2,9 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class User < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class User < StructBase
       attribute :id, Types::Snowflake
       attribute :username, Types::Coercible::String
       attribute :discriminator, Types::Coercible::String
@@ -25,9 +23,7 @@ module DiscordAsync
       attribute? :avatar_decoration, Types::Nominal::Any
     end
 
-    class PartialUser < Dry::Struct
-      transform_keys(&:to_sym)
-
+    class PartialUser < StructBase
       attribute :id, Types::Snowflake
 
       attribute? :username, Types::Coercible::String

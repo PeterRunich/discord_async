@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Application < Dry::Struct
-      class ApplicationCommandOption < Dry::Struct
+    class Application < StructBase
+      class ApplicationCommandOption < StructBase
         ApplicationCommandOptionTypes = Types::Integer.enum(
           1 => :sub_command,
           2 => :sub_command_group,
@@ -17,8 +17,6 @@ module DiscordAsync
           10 => :number,
           11 => :attachment
         )
-
-        transform_keys(&:to_sym)
 
         attribute :type, ApplicationCommandOptionTypes
         attribute :name, Types::Coercible::String

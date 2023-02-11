@@ -3,8 +3,8 @@
 
 module DiscordAsync
   module Resources
-    class Interaction < Dry::Struct
-      class ResolvedData < Dry::Struct
+    class Interaction < StructBase
+      class ResolvedData < StructBase
         attribute? :users,
         attribute? :members,
         attribute? :roles,

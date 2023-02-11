@@ -2,11 +2,9 @@
 
 module DiscordAsync
   module Resources
-    class Application < Dry::Struct
-      class ApplicationCommand < Dry::Struct
+    class Application < StructBase
+      class ApplicationCommand < StructBase
         ApplicationCommandTypes = Types::Integer.enum(1 => :chat_input, 2 => :user, 3 => :message)
-
-        transform_keys(&:to_sym)
 
         attribute :id, Types::Snowflake
         attribute? :type, ApplicationCommandTypes.default(1)

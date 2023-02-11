@@ -2,8 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Channel < Dry::Struct
-      class ChannelMention < Dry::Struct
+    class Channel < StructBase
+      class ChannelMention < StructBase
         attribute :id, Types::Snowflake
         attribute :guild_id, Types::Snowflake
         attribute :type, ChannelTypes

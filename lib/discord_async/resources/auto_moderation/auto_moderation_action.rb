@@ -3,14 +3,12 @@
 module DiscordAsync
   module Resources
     module AutoModeration
-      class AutoModerationAction < Dry::Struct
+      class AutoModerationAction < StructBase
         ActionTypes = Types::Integer.enum(1 => :block_message, 2 => :send_alert_message, 3 => :timeout)
-        class ActionMetadata < Dry::Struct
+        class ActionMetadata < StructBase
           attribute  :channel_id, Types::Snowflake
           attribute  :duration_seconds, Types::Coercible::Integer
         end
-
-        transform_keys(&:to_sym)
 
         attribute :type, ActionTypes
         attribute? :metadata, ActionMetadata

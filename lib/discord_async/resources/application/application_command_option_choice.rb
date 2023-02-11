@@ -2,10 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Application < Dry::Struct
-      class ApplicationCommandOptionChoice < Dry::Struct
-        transform_keys(&:to_sym)
-
+    class Application < StructBase
+      class ApplicationCommandOptionChoice < StructBase
         attribute :name, Types::Coercible::String
         attribute? :name_localization, Types::Hash.optional
         attribute :value, Types::String | Types::Integer | Types::Float

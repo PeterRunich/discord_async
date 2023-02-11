@@ -2,10 +2,8 @@
 
 module DiscordAsync
   module Resources
-    class Guild < Dry::Struct
-      class GuildMember < Dry::Struct
-        transform_keys(&:to_sym)
-
+    class Guild < StructBase
+      class GuildMember < StructBase
         attribute? :user, Resources::Guild
         attribute? :nick, Types::Coercible::String.optional
         attribute? :avatar, Types::Coercible::String.optional
@@ -19,9 +17,7 @@ module DiscordAsync
         attribute? :communication_disabled_until, Types::TimestampISO8601.optional
       end
 
-      class PartialGuildMember < Dry::Struct
-        transform_keys(&:to_sym)
-
+      class PartialGuildMember < StructBase
         attribute? :user, Resources::Guild
         attribute? :nick, Types::Coercible::String.optional
         attribute? :avatar, Types::Coercible::String.optional
