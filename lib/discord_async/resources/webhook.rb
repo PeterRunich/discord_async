@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'snowflake'
-require_relative 'user/user'
-require_relative 'guild/guild'
-require_relative 'channel/channel'
-
 module DiscordAsync
   module Resources
     class Webhook < Dry::Struct

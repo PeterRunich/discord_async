@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative '../../types'
-require_relative '../../resources/snowflake'
-require_relative '../../resources/guild/guild_member'
-require_relative '../../resources/emoji'
-
 module DiscordAsync
   class Gateway
     module Events

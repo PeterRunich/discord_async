@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../types'
-require_relative '../snowflake'
-require_relative 'channel'
 module DiscordAsync
   module Resources
     class Channel < Dry::Struct

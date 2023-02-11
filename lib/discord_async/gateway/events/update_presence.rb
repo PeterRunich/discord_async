@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative 'presence_update'
 module DiscordAsync
   class Gateway
     module Events

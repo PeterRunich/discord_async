@@ -2,24 +2,6 @@
 
 require 'uri'
 require 'async/http/internet'
-require_relative 'application_command'
-require_relative 'interaction'
-require_relative 'application_role_connection_metadata'
-require_relative 'audit_log'
-require_relative 'auto_moderation'
-require_relative 'channel'
-require_relative 'emoji'
-require_relative 'guild'
-require_relative 'guild_scheduled_event'
-require_relative 'guild_template'
-require_relative 'invite'
-require_relative 'stage_instance'
-require_relative 'sticker'
-require_relative 'user'
-require_relative 'voice'
-require_relative 'webhook'
-require_relative 'gateway'
-require_relative 'oauth'
 
 module DiscordAsync
   module REST

@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../types'
 require 'dry-types'
 
-require_relative 'opcodes'
-require_relative 'events/events'
-require_relative 'events/base'
 # module Types
 #   include Dry.Types()
 #   Event = Types.Constructor(lambda do |event_obj|

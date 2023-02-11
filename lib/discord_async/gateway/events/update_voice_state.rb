@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative '../../types'
-
 module DiscordAsync
   class Gateway
     module Events

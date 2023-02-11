@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'async'
-require_relative 'event_observer'
+
 require 'rbnacl'
 require 'opus-ruby'
 

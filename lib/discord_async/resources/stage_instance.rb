@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../types'
-require_relative '../resources/snowflake'
-
 module DiscordAsync
   module Resources
     class StageInstance < Dry::Struct

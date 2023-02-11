@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../types'
-require_relative '../snowflake'
-require_relative 'optional_audit_entry'
-require_relative 'audit_log_events'
-require_relative 'audit_log_change'
-
 module DiscordAsync
   module Resources
     class AuditLog < Dry::Struct

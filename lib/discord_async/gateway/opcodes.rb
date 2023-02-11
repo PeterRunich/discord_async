@@ -2,8 +2,6 @@
 
 require 'dry-types'
 
-require_relative '../types'
-
 module DiscordAsync
   class Gateway
     Opcodes = Types::Integer.enum(

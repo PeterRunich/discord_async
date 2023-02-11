@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../../types'
-require_relative '../../snowflake'
-require_relative '../../user/user'
-require_relative 'guild_scheduled_event_entity_metadata'
-
 module DiscordAsync
   module Resources
     class Guild < Dry::Struct

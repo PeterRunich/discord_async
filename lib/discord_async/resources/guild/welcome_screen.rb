@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../types'
-require_relative 'welcome_screen_channel'
-
 module DiscordAsync
   module Resources
     class Guild < Dry::Struct

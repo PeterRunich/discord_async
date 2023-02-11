@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative '../../resources/guild/integration/integration'
-
 module DiscordAsync
   class Gateway
     module Events

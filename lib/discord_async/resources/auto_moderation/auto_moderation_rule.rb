@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../types'
-require_relative '../snowflake'
-require_relative 'rule_trigger_metadata'
-require_relative 'auto_moderation_action'
-
 module DiscordAsync
   module Resources
     module AutoModeration

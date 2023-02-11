@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative '../../resources/application/application_command_permissions'
 module DiscordAsync
   class Gateway
     module Events

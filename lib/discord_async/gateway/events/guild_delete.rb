@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative '../../resources/guild/unavailable_guild'
-
 module DiscordAsync
   class Gateway
     module Events

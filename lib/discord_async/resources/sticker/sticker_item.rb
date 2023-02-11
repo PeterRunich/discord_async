@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../types'
-require_relative '../snowflake'
-require_relative 'sticker_format'
-
 module DiscordAsync
   module Resources
     class Sticker < Dry::Struct

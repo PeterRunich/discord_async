@@ -3,7 +3,6 @@
 require 'dry-types'
 
 require 'dry-validation'
-require_relative 'util'
 
 module DiscordAsync
   module ApplicationCommand

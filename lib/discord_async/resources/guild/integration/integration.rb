@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../../types'
-require_relative '../../snowflake'
-require_relative '../../user/user'
-require_relative '../../application/application'
-require_relative 'integration_account'
-
 module DiscordAsync
   module Resources
     class Guild < Dry::Struct

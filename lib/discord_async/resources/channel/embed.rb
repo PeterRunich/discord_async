@@ -1,14 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../types'
-require_relative 'embed_footer'
-require_relative 'embed_image'
-require_relative 'embed_thumbnail'
-require_relative 'embed_video'
-require_relative 'embed_provider'
-require_relative 'embed_author'
-require_relative 'embed_field'
-
 module DiscordAsync
   module Resources
     class Channel < Dry::Struct

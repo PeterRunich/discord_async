@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative '../../resources/snowflake'
-require_relative '../../resources/channel/thread_member'
-require_relative '../../types'
-
 module DiscordAsync
   class Gateway
     module Events

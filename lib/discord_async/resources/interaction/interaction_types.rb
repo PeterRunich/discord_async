@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../types'
-
 module DiscordAsync
   module Resources
     class Interaction < Dry::Struct

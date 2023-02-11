@@ -1,5 +1,5 @@
 
-require_relative '../../types'
+
 
 module DiscordAsync
   module Resources

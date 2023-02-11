@@ -7,10 +7,6 @@ require 'async/http'
 require 'async/http/internet'
 require 'json'
 require 'logger'
-require_relative 'gateway/gateway'
-require_relative 'voice'
-require_relative 'event_observer'
-require_relative 'gateway/events/events'
 
 module DiscordAsync
   RESTClient = Data.define(:version, :token) do

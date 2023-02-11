@@ -1,12 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../types'
-require_relative '../snowflake'
-require_relative '../sticker/sticker'
-require_relative 'welcome_screen'
-require_relative '../role'
-require_relative '../emoji'
-
 module DiscordAsync
   module Resources
     class Guild < Dry::Struct

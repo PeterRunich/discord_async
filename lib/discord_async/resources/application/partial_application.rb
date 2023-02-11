@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../types'
-require_relative '../snowflake'
-require_relative 'application_command_option_choice'
-
 module DiscordAsync
   module Resources
     class Application < Dry::Struct

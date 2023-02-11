@@ -1,14 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../types'
-require_relative '../../resources/snowflake'
-require_relative 'overwrite'
-require_relative '../user/user'
-require_relative 'thread_metadata'
-require_relative 'thread_member'
-require_relative 'default_reaction'
-require_relative 'forum_tag'
-
 module DiscordAsync
   module Resources
     class Channel < Dry::Struct

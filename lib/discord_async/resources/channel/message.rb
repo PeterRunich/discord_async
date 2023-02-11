@@ -1,24 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../interaction/message_interaction'
-require_relative '../../types'
-require_relative '../../resources/snowflake'
-require_relative '../../resources/user/user'
-require_relative '../role'
-require_relative 'channel_mention'
-require_relative 'attachment'
-require_relative 'embed'
-require_relative 'reaction'
-require_relative 'message_activity'
-require_relative '../application/application'
-require_relative 'message_types'
-require_relative 'message_reference'
-require_relative '../channel/channel'
-require_relative '../sticker/sticker'
-require_relative '../sticker/sticker_format'
-require_relative '../sticker/sticker_item'
-require_relative '../channel/role_subscription_data_object'
-
 module DiscordAsync
   module Resources
     class Channel < Dry::Struct

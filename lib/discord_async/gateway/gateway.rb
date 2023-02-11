@@ -6,11 +6,6 @@ require 'async/http'
 require 'async/websocket'
 require 'logger'
 
-require_relative '../event_observer'
-require_relative '../observer'
-require_relative 'opcodes'
-require_relative 'payload'
-
 module DiscordAsync
   class Gateway
     module EncodingTypes

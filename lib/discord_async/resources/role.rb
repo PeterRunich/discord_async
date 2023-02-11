@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../types'
-require_relative 'snowflake'
-require_relative 'role_tags'
-
 module DiscordAsync
   module Resources
     class Role < Dry::Struct

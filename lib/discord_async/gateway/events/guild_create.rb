@@ -1,16 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require_relative '../../types'
-require_relative '../../resources/guild/unavailable_guild'
-require_relative '../../resources/guild/guild'
-require_relative '../../resources/guild/guild_member'
-require_relative '../../resources/channel/channel'
-require_relative '../../resources/voice/voice_state'
-require_relative '../../resources/stage_instance'
-require_relative 'presence_update'
-require_relative '../../resources/guild/scheduled_event/guild_scheduled_event'
-
 module DiscordAsync
   class Gateway
     module Events
