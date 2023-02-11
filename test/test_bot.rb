@@ -19,7 +19,7 @@ describe 'Bot' do
       bot.config.gateway.tap do |gateway|
         assert gateway.version == 10
         assert gateway.encoding == :json
-        assert gateway.compress == nil
+        assert gateway.compress.nil?
         assert gateway.os == RUBY_PLATFORM
         assert gateway.browser == "Ruby library \"discord_async\" v#{DiscordAsync::VERSION}"
         assert gateway.device == "Ruby library \"discord_async\" v#{DiscordAsync::VERSION}"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DiscordAsync
   module REST
     module ApplicationCommand
@@ -38,7 +40,8 @@ module DiscordAsync
       end
 
       def edit_guild_application_command(guild_id, command_id, body)
-        @internet.patch "#{@base_url}/applications/#{@app_id}/guilds/#{guild_id}/commands/#{command_id}", default_headers, body
+        @internet.patch "#{@base_url}/applications/#{@app_id}/guilds/#{guild_id}/commands/#{command_id}",
+                        default_headers, body
       end
 
       def delete_guild_application_command(guild_id, command_id)
@@ -58,7 +61,8 @@ module DiscordAsync
       end
 
       def edit_application_command_permissions(guild_id, command_id, body)
-        @internet.put "#{@base_url}/applications/#{@app_id}/guilds/#{guild_id}/commands/#{command_id}/permissions", default_headers, body
+        @internet.put "#{@base_url}/applications/#{@app_id}/guilds/#{guild_id}/commands/#{command_id}/permissions",
+                      default_headers, body
       end
     end
   end

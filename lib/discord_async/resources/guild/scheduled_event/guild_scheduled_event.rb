@@ -1,4 +1,5 @@
-require 'dry-struct'
+# frozen_string_literal: true
+
 require_relative '../../../types'
 require_relative '../../snowflake'
 require_relative '../../user/user'
@@ -10,7 +11,8 @@ module DiscordAsync
       module ScheduledEvent
         class GuildScheduledEvent < Dry::Struct
           GuildScheduledEventEntityTypes = Types::Integer.enum(1 => :stage_instance, 2 => :voice, 3 => :external)
-          GuildScheduledEventStatus = Types::Integer.enum(1 => :scheduled, 2 => :active, 3 => :completed, 4 => :canceled)
+          GuildScheduledEventStatus = Types::Integer.enum(1 => :scheduled, 2 => :active, 3 => :completed,
+                                                          4 => :canceled)
           GuildScheduledEventPrivacyLevel = Types::Integer.enum(2 => :guild_only)
 
           transform_keys(&:to_sym)

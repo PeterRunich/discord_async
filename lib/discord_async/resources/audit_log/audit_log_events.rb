@@ -1,4 +1,5 @@
-require 'dry-struct'
+# frozen_string_literal: true
+
 require_relative '../../types'
 
 module DiscordAsync
@@ -63,4 +64,3 @@ module DiscordAsync
     end
   end
 end
-

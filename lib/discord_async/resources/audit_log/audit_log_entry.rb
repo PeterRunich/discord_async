@@ -1,4 +1,5 @@
-require 'dry-struct'
+# frozen_string_literal: true
+
 require_relative '../../types'
 require_relative '../snowflake'
 require_relative 'optional_audit_entry'
@@ -22,4 +23,3 @@ module DiscordAsync
     end
   end
 end
-

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DiscordAsync
   module REST
     module Webhook
@@ -38,15 +40,18 @@ module DiscordAsync
       end
 
       def execute_webhook(webhook_id, webhook_token, body, wait: false, thread_id: nil)
-        @internet.post "#{@base_url}/webhooks/#{webhook_id}/#{webhook_token}#{params({ wait:, thread_id: })}", default_headers, body
+        @internet.post "#{@base_url}/webhooks/#{webhook_id}/#{webhook_token}#{params({ wait:, thread_id: })}",
+                       default_headers, body
       end
 
       def execute_slack_compatible_webhook(webhook_id, webhook_token, body, wait: true, thread_id: nil)
-        @internet.post "#{@base_url}/webhooks/#{webhook_id}/#{webhook_token}/slack#{params({ wait:, thread_id: })}", default_headers, body
+        @internet.post "#{@base_url}/webhooks/#{webhook_id}/#{webhook_token}/slack#{params({ wait:, thread_id: })}",
+                       default_headers, body
       end
 
       def execute_github_compatible_webhook(webhook_id, webhook_token, body, wait: true, thread_id: nil)
-        @internet.post "#{@base_url}/webhooks/#{webhook_id}/#{webhook_token}/github#{params({ wait:, thread_id: })}", default_headers, body
+        @internet.post "#{@base_url}/webhooks/#{webhook_id}/#{webhook_token}/github#{params({ wait:, thread_id: })}",
+                       default_headers, body
       end
 
       def get_webhook_message(webhook_id, webhook_token, message_id, thread_id: nil)
@@ -54,7 +59,8 @@ module DiscordAsync
       end
 
       def edit_webhook_message(webhook_id, webhook_token, message_id, body, thread_id: nil)
-        @internet.patch "#{@base_url}/webhooks/#{webhook_id}/#{webhook_token}/messages/#{message_id}#{params({ thread_id: })}", default_headers, body
+        @internet.patch "#{@base_url}/webhooks/#{webhook_id}/#{webhook_token}/messages/#{message_id}#{params({ thread_id: })}",
+                        default_headers, body
       end
 
       def delete_webhook_message(webhook_id, webhook_token, message_id, thread_id: nil)
@@ -63,4 +69,3 @@ module DiscordAsync
     end
   end
 end
-

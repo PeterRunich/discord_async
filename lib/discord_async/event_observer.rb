@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DiscordAsync
   class EventObserver
     def initialize
@@ -14,7 +16,7 @@ module DiscordAsync
       end
     end
 
-    def unsubscribe(opcode:, event_name: nil, callback:)
+    def unsubscribe(opcode:, callback:, event_name: nil)
       case opcode
       when 0
         @subscribers.fetch(opcode)[event_name.to_sym].delete_if { |sub| sub[:callback] == callback }

@@ -1,5 +1,4 @@
-require 'dry-struct'
-require 'dry-struct'
+# frozen_string_literal: true
 
 module DiscordAsync
   class Gateway

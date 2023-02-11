@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DiscordAsync
   module REST
     module AutoModeration
@@ -14,7 +16,8 @@ module DiscordAsync
       end
 
       def modify_auto_moderation_rule(guild_id, auto_moderation_rule_id, body)
-        @internet.patch "#{@base_url}/guilds/#{guild_id}/auto-moderation/rules/#{auto_moderation_rule_id}", default_headers, body
+        @internet.patch "#{@base_url}/guilds/#{guild_id}/auto-moderation/rules/#{auto_moderation_rule_id}",
+                        default_headers, body
       end
 
       def delete_auto_moderation_rule(guild_id, auto_moderation_rule_id)

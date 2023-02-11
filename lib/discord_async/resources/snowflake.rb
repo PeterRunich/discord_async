@@ -1,4 +1,5 @@
-require 'dry-struct'
+# frozen_string_literal: true
+
 require_relative '../types'
 
 module DiscordAsync
@@ -24,7 +25,7 @@ module DiscordAsync
     end
 
     def to_time
-      Time.at ((@value >> 22) + 1420070400000) / 1000.0
+      Time.at ((@value >> 22) + 1_420_070_400_000) / 1000.0
     end
   end
 

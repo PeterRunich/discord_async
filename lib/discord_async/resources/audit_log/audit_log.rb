@@ -1,4 +1,5 @@
-require 'dry-struct'
+# frozen_string_literal: true
+
 require_relative '../../types'
 require_relative '../application/application_command'
 require_relative 'audit_log_entry'

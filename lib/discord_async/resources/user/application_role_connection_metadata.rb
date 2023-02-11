@@ -1,1 +1,4 @@
-ApplicationRoleConnectionMetadata = Data.define(:type, :key, :name, :name_localizations, :description, :description_localizations)
+# frozen_string_literal: true
+
+ApplicationRoleConnectionMetadata = Data.define(:type, :key, :name, :name_localizations, :description,
+                                                :description_localizations)

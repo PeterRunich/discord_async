@@ -3,14 +3,14 @@
 require 'test_helper'
 describe 'Manager' do
   let(:manager) { DiscordAsync::ApplicationCommand::Manager.new }
-  let(:command_params) {
+  let(:command_params) do
     {
       name: :my_name,
       description: 'my description',
       default_member_permissions: '1',
       dm_permission: true
     }
-  }
+  end
 
   describe 'chat input command' do
     it 'defines chat input command with name, description, default_member_permissions, dm_permission' do
@@ -67,7 +67,7 @@ describe 'Manager' do
           end
         end
       end.first => command
-      
+
       assert command.options.first.type == 3
     end
   end
@@ -110,7 +110,6 @@ describe 'Manager' do
         end
       end
     end
-
   end
 
   describe 'message command' do

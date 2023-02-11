@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DiscordAsync
   module REST
     module Guild
@@ -74,7 +76,7 @@ module DiscordAsync
       end
 
       def get_guild_bans(guild_id, limit: nil, before: nil, after: nil)
-        @internet.get "#{@base_url}/guilds/#{guild_id}/bans#{params({ limit:, before:, after:})}"
+        @internet.get "#{@base_url}/guilds/#{guild_id}/bans#{params({ limit:, before:, after: })}"
       end
 
       def get_guild_ban(guild_id, user_id)
@@ -90,7 +92,7 @@ module DiscordAsync
       end
 
       def get_guild_roles(guild_id)
-        @internet.get"#{@base_url}/guilds/#{guild_id}/roles"
+        @internet.get "#{@base_url}/guilds/#{guild_id}/roles"
       end
 
       def create_guild_role(guild_id, body)

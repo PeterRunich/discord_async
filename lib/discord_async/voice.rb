@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'async'
 require_relative 'event_observer'
 require 'rbnacl'
@@ -145,6 +147,7 @@ module DiscordAsync
 
     def send_heart_beat
       return if @connection.closed?
+
       @connection.write({ op: 3, d: 1 }.to_json)
       @connection.flush
     end
@@ -178,7 +181,7 @@ module DiscordAsync
       data = {
         "op": 1,
         "d": {
-          "protocol": "udp",
+          "protocol": 'udp',
           "data": {
             address:,
             port:,
@@ -205,10 +208,10 @@ module DiscordAsync
       @endpoint = Async::IO::Endpoint.udp(ip, port.to_i)
       @socket = @endpoint.connect
 
-      @opus = Opus::Encoder.new(48000, 960, 2)
+      @opus = Opus::Encoder.new(48_000, 960, 2)
 
-      @sequence = 0 #TODO: Если интеджер переполнится сбросить
-      @timestamp = 0 #TODO: Если интеджер переполнится сбросить
+      @sequence = 0 # TODO: Если интеджер переполнится сбросить
+      @timestamp = 0 # TODO: Если интеджер переполнится сбросить
     end
 
     def send(buffer)

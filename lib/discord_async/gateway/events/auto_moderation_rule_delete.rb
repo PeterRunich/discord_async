@@ -1,7 +1,7 @@
-require 'dry-struct'
+# frozen_string_literal: true
+
 require_relative 'base'
 require_relative '../../resources/auto_moderation/auto_moderation_rule'
-
 
 module DiscordAsync
   class Gateway

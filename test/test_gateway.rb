@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'discord_async/gateway/gateway'
 require 'json'
@@ -51,7 +53,7 @@ describe DiscordAsync::Gateway do
           Async::Task.current.yield
           return nil if @closed
 
-          { op: 10, d: { heartbeat_interval: 45000 } }.to_json
+          { op: 10, d: { heartbeat_interval: 45_000 } }.to_json
         end
 
         fake_connection
@@ -91,7 +93,7 @@ describe DiscordAsync::Gateway do
           Async::Task.current.yield
           return nil if @closed
 
-          { op: 10, d: { heartbeat_interval: 45000 } }.to_json
+          { op: 10, d: { heartbeat_interval: 45_000 } }.to_json
         end
 
         fake_connection
@@ -114,7 +116,7 @@ describe DiscordAsync::Gateway do
     end
 
     it 'start heart beat loop' do
-      assert = self.method(:assert)
+      assert = method(:assert)
       assert_reached = proc {}
       assert_reached_spy = Spy.on(assert_reached, :call).and_call_through
       url = 'wss://gateway.discord.gg?v=4&encoding=json'
@@ -128,7 +130,6 @@ describe DiscordAsync::Gateway do
         fake_connection.instance_variable_set :@recv_events, []
         def fake_connection.close = @closed = true
         def fake_connection.closed? = @closed
-
 
         fake_connection.define_singleton_method :read do
           Async::Task.current.yield
@@ -152,6 +153,7 @@ describe DiscordAsync::Gateway do
 
         def fake_connection.flush
           return unless @data
+
           @recv_events << @data
           @data = nil
         end
@@ -180,12 +182,12 @@ describe DiscordAsync::Gateway do
       url = 'wss://gateway.discord.gg?v=4&encoding=json'
       assert_reached = proc {}
       assert_reached_spy = Spy.on(assert_reached, :call).and_call_through
-      assert = self.method(:assert)
-      refute = self.method(:refute)
+      assert = method(:assert)
+      refute = method(:refute)
 
       identify_info = {
         token: 'fake_token',
-        properties: { os: RUBY_PLATFORM, browser: 'test', device:'test' },
+        properties: { os: RUBY_PLATFORM, browser: 'test', device: 'test' },
         intents: 1
       }
       gateway = DiscordAsync::Gateway.new 'fake_token'

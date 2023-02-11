@@ -1,4 +1,5 @@
-require 'dry-struct'
+# frozen_string_literal: true
+
 require_relative '../../types'
 require_relative 'embed_footer'
 require_relative 'embed_image'

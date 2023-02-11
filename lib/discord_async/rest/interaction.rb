@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 module DiscordAsync
   module REST
     module Interaction
       def create_interaction_response(interaction_id, interaction_token, body)
-        @internet.post "#{@base_url}/interactions/#{interaction_id}/#{interaction_token}/callback", default_headers, body
+        @internet.post "#{@base_url}/interactions/#{interaction_id}/#{interaction_token}/callback", default_headers,
+                       body
       end
 
       def get_original_interaction_response(interaction_token)
@@ -10,7 +13,8 @@ module DiscordAsync
       end
 
       def edit_original_interaction_response(interaction_token, body)
-        @internet.patch "#{@base_url}/webhooks/#{@app_id}/#{interaction_token}/messages/@original", default_headers, body
+        @internet.patch "#{@base_url}/webhooks/#{@app_id}/#{interaction_token}/messages/@original", default_headers,
+                        body
       end
 
       def delete_original_interaction_response(interaction_token)
@@ -26,7 +30,8 @@ module DiscordAsync
       end
 
       def edit_followup_message(interaction_token, message_id, body)
-        @internet.patch "#{@base_url}/webhooks/#{@app_id}/#{interaction_token}/messages/#{message_id}", default_headers, body
+        @internet.patch "#{@base_url}/webhooks/#{@app_id}/#{interaction_token}/messages/#{message_id}",
+                        default_headers, body
       end
 
       def delete_followup_message(interaction_token, message_id)

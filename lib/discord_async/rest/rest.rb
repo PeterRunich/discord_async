@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'uri'
 require 'async/http/internet'
 require_relative 'application_command'

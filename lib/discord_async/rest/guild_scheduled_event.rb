@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DiscordAsync
   module REST
     module GuildScheduledEvent
@@ -14,17 +16,20 @@ module DiscordAsync
       end
 
       def modify_guild_scheduled_event(guild_id, guild_scheduled_event_id, body)
-        @internet.patch "#{@base_url}/guilds/#{guild_id}/scheduled-events/#{guild_scheduled_event_id}", default_headers, body
+        @internet.patch "#{@base_url}/guilds/#{guild_id}/scheduled-events/#{guild_scheduled_event_id}",
+                        default_headers, body
       end
 
       def delete_guild_scheduled_event(guild_id, guild_scheduled_event_id)
         @internet.delete "#{@base_url}/guilds/#{guild_id}/scheduled-events/#{guild_scheduled_event_id}"
       end
 
-      def get_guild_scheduled_event_users(guild_id, guild_scheduled_event_id, limit: nil, with_member: nil, before: nil, after: nil)
-        @internet.get "#{@base_url}/guilds/#{guild_id}/scheduled-events/#{guild_scheduled_event_id}/users#{params({ limit:, with_member:, before:, after: })}"
+      def get_guild_scheduled_event_users(guild_id, guild_scheduled_event_id, limit: nil, with_member: nil,
+                                          before: nil, after: nil)
+        @internet.get "#{@base_url}/guilds/#{guild_id}/scheduled-events/#{guild_scheduled_event_id}/users#{params({
+                                                                                                                    limit:, with_member:, before:, after:
+                                                                                                                  })}"
       end
     end
   end
 end
-

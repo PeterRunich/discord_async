@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'uri'
 require 'async'
 require 'async/http'
 require 'async/websocket'
 require 'logger'
-require 'dry-struct'
+
 require_relative '../event_observer'
 require_relative '../observer'
 require_relative 'opcodes'
@@ -34,7 +36,7 @@ module DiscordAsync
     def initialize(token)
       @token = token
       @event_observer = EventObserver.new
-      @logger = Logger.new(STDOUT)
+      @logger = Logger.new($stdout)
 
       @event_repeater = Observer.new
     end
@@ -112,6 +114,7 @@ module DiscordAsync
 
     def send_heart_beat
       return if @connection.closed?
+
       @connection.write({ op: 1, d: nil }.to_json)
       @connection.flush
     end

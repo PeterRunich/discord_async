@@ -16,7 +16,7 @@ describe DiscordAsync::Resources::User do
       system: false,
       mfa_enabled: false,
       banner: 'any_banner_hash',
-      accent_color: 13399842,
+      accent_color: 13_399_842,
       locale: 'ru',
       verified: true,
       email: 'p.runich@bk.ru',

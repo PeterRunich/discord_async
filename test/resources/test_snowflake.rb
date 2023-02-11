@@ -11,16 +11,16 @@ describe DiscordAsync::Snowflake do
     snowflake = DiscordAsync::Snowflake.new snowflake_string_integer
 
     assert snowflake.is_a? DiscordAsync::Snowflake
-    assert_equal 364453157511888896, snowflake.instance_variable_get(:@value)
+    assert_equal 364_453_157_511_888_896, snowflake.instance_variable_get(:@value)
   end
 
   it 'creates from integer' do
-    snowflake_integer = 364453157511888896
+    snowflake_integer = 364_453_157_511_888_896
 
     snowflake = DiscordAsync::Snowflake.new snowflake_integer
 
     assert snowflake.is_a? DiscordAsync::Snowflake
-    assert_equal 364453157511888896, snowflake.instance_variable_get(:@value)
+    assert_equal 364_453_157_511_888_896, snowflake.instance_variable_get(:@value)
   end
 
   it 'raise error if none convertable input' do
@@ -32,7 +32,7 @@ describe DiscordAsync::Snowflake do
 
     snowflake = DiscordAsync::Snowflake.new snowflake_string
 
-    assert_equal Time.at(1506962803.963), snowflake.to_time
+    assert_equal Time.at(1_506_962_803.963), snowflake.to_time
   end
 
   it '#internal_worker_id' do

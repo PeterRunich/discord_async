@@ -1,4 +1,5 @@
-require 'dry-struct'
+# frozen_string_literal: true
+
 require_relative '../interaction/message_interaction'
 require_relative '../../types'
 require_relative '../../resources/snowflake'
@@ -48,7 +49,7 @@ module DiscordAsync
         attribute? :referenced_message, Message.optional
         attribute? :interaction, Interaction::MessageInteraction
         attribute? :thread, Channel
-        #attribute? :components, TODO: complex check Discord doc
+        # attribute? :components, TODO: complex check Discord doc
         attribute? :sticker_items, Types::Array.of(Sticker::StickerItem)
         attribute? :stickers, Types::Array.of(Sticker)
         attribute? :position, Types::Coercible::Integer

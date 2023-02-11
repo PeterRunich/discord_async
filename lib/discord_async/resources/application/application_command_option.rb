@@ -1,4 +1,5 @@
-require 'dry-struct'
+# frozen_string_literal: true
+
 require_relative '../../types'
 require_relative '../snowflake'
 require_relative 'application_command_option_choice'
@@ -26,7 +27,7 @@ module DiscordAsync
         attribute :type, ApplicationCommandOptionTypes
         attribute :name, Types::Coercible::String
         attribute? :name_localization, Types::Hash.optional
-        attribute :description, Types::Coercible::String.default(''.freeze)
+        attribute :description, Types::Coercible::String.default('')
         attribute? :description_localization, Types::Hash.optional
         attribute? :required, Types::Bool.default(false)
         attribute? :choices, Types::Array.of(Application::ApplicationCommandOptionChoice)
@@ -41,4 +42,3 @@ module DiscordAsync
     end
   end
 end
-

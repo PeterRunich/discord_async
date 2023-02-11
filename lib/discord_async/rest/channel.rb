@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DiscordAsync
   module REST
     module Channel
@@ -11,7 +13,6 @@ module DiscordAsync
 
       def delete_channel(channel_id)
         @internet.delete "#{@base_url}/channels/#{channel_id}"
-
       end
 
       def get_channel_messages(channel_id, around: nil, before: nil, after: nil, limit: nil)
@@ -31,7 +32,8 @@ module DiscordAsync
       end
 
       def create_reaction(channel_id, message_id, emoji, body)
-        @internet.put "#{@base_url}/channels/#{channel_id}/messages/#{message_id}/reactions/#{emoji}/@me", default_headers, body
+        @internet.put "#{@base_url}/channels/#{channel_id}/messages/#{message_id}/reactions/#{emoji}/@me",
+                      default_headers, body
       end
 
       def delete_own_reaction(channel_id, message_id, emoji)
@@ -43,7 +45,8 @@ module DiscordAsync
       end
 
       def get_reactions(channel_id, message_id, emoji, after: nil, limit: nil)
-        @internet.get "#{@base_url}/channels/#{channel_id}/messages/#{message_id}/reactions/#{emoji}#{params({ after:, limit: })}"
+        @internet.get "#{@base_url}/channels/#{channel_id}/messages/#{message_id}/reactions/#{emoji}#{params({ after:,
+                                                                                                               limit: })}"
       end
 
       def delete_all_reactions(channel_id, message_id)
@@ -155,7 +158,8 @@ module DiscordAsync
       end
 
       def list_joined_private_archived_threads(channel_id, before: nil, limit: nil)
-        @internet.get "#{@base_url}/channels/#{channel_id}/users/@me/threads/archived/private#{params({ before:, limit: })}"
+        @internet.get "#{@base_url}/channels/#{channel_id}/users/@me/threads/archived/private#{params({ before:,
+                                                                                                        limit: })}"
       end
     end
   end

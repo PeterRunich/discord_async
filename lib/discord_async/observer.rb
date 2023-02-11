@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DiscordAsync
   class Observer
     def initialize = @subscribers = []

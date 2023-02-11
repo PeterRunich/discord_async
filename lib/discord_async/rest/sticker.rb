@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DiscordAsync
   module REST
     module Sticker
@@ -31,4 +33,3 @@ module DiscordAsync
     end
   end
 end
-

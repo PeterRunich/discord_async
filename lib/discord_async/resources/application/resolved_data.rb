@@ -1,4 +1,4 @@
-require 'dry-struct'
+
 require_relative '../../types'
 
 module DiscordAsync

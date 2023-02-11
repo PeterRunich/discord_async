@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 require 'dry-types'
-require 'dry-struct'
+
 require 'dry-validation'
 require_relative 'util'
 
@@ -20,8 +22,10 @@ module DiscordAsync
       Name = Type.Constructor(Object) { |v| NameConvension v }
 
       CommandType = Integer.enum(1 => :chat_input, 2 => :user, 3 => :message)
-      CommandOptionType = Integer.enum(1 => :sub_command, 2 => :sub_command_group, 3 => :string, 4 => :integer, 5 => :boolean, 6 => :user, 7 => :channel, 8 => :role, 9 => :mentionable , 10 => :number, 11 => :attachment)
-      ChannelType = Integer.enum(0 => :guild_text, 1 => :dm, 2 => :guild_voice, 3 => :group_dm, 4 => :guild_category, 5 => :guild_announcement, 10 => :announcement_thread, 11 => :public_thread, 12 => :private_thread, 13 => :guild_stage_voice, 14 => :guild_directory, 15 => :guild_forum)
+      CommandOptionType = Integer.enum(1 => :sub_command, 2 => :sub_command_group, 3 => :string, 4 => :integer,
+                                       5 => :boolean, 6 => :user, 7 => :channel, 8 => :role, 9 => :mentionable, 10 => :number, 11 => :attachment)
+      ChannelType = Integer.enum(0 => :guild_text, 1 => :dm, 2 => :guild_voice, 3 => :group_dm, 4 => :guild_category,
+                                 5 => :guild_announcement, 10 => :announcement_thread, 11 => :public_thread, 12 => :private_thread, 13 => :guild_stage_voice, 14 => :guild_directory, 15 => :guild_forum)
 
       class CommandOptionChoice < Dry::Struct
         transform_keys(&:to_sym)
@@ -55,7 +59,7 @@ module DiscordAsync
 
         attribute :name, Type::String | Type::Symbol
         attribute? :name_localization, Type::Hash.optional
-        attribute :description, Type::String.default("".freeze)
+        attribute :description, Type::String.default('')
         attribute? :description_localization, Type::Hash.optional
         attribute? :options, Type::Array.of(CommandOption)
         attribute? :default_member_permissions, Type::String.optional
@@ -127,7 +131,9 @@ module DiscordAsync
         end
 
         def to_hash
-          instance_variables.each_with_object({}) { |var, hash| hash[var.to_s.delete("@")] = instance_variable_get(var) }.compact
+          instance_variables.each_with_object({}) do |var, hash|
+            hash[var.to_s.delete('@')] = instance_variable_get(var)
+          end.compact
         end
 
         alias desc description
@@ -136,7 +142,8 @@ module DiscordAsync
 
       class CommandOption
         extend Util::DSLAttribute
-        dsl_attr :description, :required, :channel_types, :min_value, :max_value, :min_length, :max_length, :autocomplete
+        dsl_attr :description, :required, :channel_types, :min_value, :max_value, :min_length, :max_length,
+                 :autocomplete
 
         def initialize(type, name, **kwargs)
           @type = Type::CommandOptionType[type]
@@ -160,7 +167,9 @@ module DiscordAsync
         end
 
         def to_hash
-          instance_variables.each_with_object({}) { |var, hash| hash[var.to_s.delete("@")] = instance_variable_get(var) }.compact
+          instance_variables.each_with_object({}) do |var, hash|
+            hash[var.to_s.delete('@')] = instance_variable_get(var)
+          end.compact
         end
 
         alias desc description
@@ -171,7 +180,7 @@ module DiscordAsync
       schema do
         required(:type).filled Type::CommandType
         required(:name).filled Type::Name
-        required(:description).filled Type::String.default(''.freeze)
+        required(:description).filled Type::String.default('')
         # optional(:options).filled Type::Array.of(Type::CommandOption)
         optional(:default_member_permissions).maybe Type::String
         optional(:dm_permission).maybe Type::Bool.default(true)
@@ -181,7 +190,7 @@ module DiscordAsync
         # end
       end
     end
-    
+
     class Manager
       def define_commands(&block)
         Factory::Command.new.tap do |obj|
@@ -191,9 +200,5 @@ module DiscordAsync
         commands.map { |cmd| Type::CommandBase.new(cmd) }
       end
     end
-
-
-
-
   end
 end

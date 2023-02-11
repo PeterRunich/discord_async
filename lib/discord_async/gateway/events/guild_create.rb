@@ -1,4 +1,5 @@
-require 'dry-struct'
+# frozen_string_literal: true
+
 require_relative 'base'
 require_relative '../../types'
 require_relative '../../resources/guild/unavailable_guild'
@@ -50,7 +51,6 @@ module DiscordAsync
               stage_instances: attributes[:stage_instances],
               guild_scheduled_events: attributes[:guild_scheduled_events]
             }
-
 
             attributes[:payload] = AvailableGuild.new(arguments)
           else
