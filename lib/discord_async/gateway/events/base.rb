@@ -3,9 +3,7 @@
 module DiscordAsync
   class Gateway
     module Events
-      class Base < Dry::Struct
-        transform_keys(&:to_sym)
-
+      class Base < StructBase
         def self.event_name
           name.split('::').last
               .gsub(/::/, '/')
