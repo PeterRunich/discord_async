@@ -3,12 +3,12 @@
 module DiscordAsync
   module Resources
     module User
-      class User < StructBase
+      class PartialUser < StructBase
         attribute :id, Types::Snowflake
-        attribute :username, Types::Coercible::String
-        attribute :discriminator, Types::Coercible::String
-        attribute? :banner_color, Types::Coercible::String.optional
-        attribute :avatar, Types::Coercible::String.optional
+        attribute? :username, Types::Coercible::String
+        attribute? :discriminator, Types::Coercible::String
+        attribute? :banner_color, Types::Coercible::String
+        attribute? :avatar, Types::Coercible::String.optional
         attribute? :bot, Types::Bool
         attribute? :system, Types::Bool
         attribute? :mfa_enabled, Types::Bool
