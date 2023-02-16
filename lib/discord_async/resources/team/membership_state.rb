@@ -3,9 +3,7 @@
 module DiscordAsync
   module Resources
     module Team
-      module_function
-
-      def new(*, **, &) = Team.new(*, **, &)
+      MembershipState = Types::Integer.enum(1 => :invited, 2 => :accepted)
     end
   end
 end
