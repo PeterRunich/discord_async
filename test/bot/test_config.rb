@@ -54,8 +54,8 @@ describe DiscordAsync::Bot::Config do
     assert_equal :json,        cfg.encoding
     assert_equal :zlib_stream, cfg.compress
     assert_equal 'my_os',      cfg.os
-    assert_equal 'smth',    cfg.browser
-    assert_equal 'smth',    cfg.device
+    assert_equal 'smth',       cfg.browser
+    assert_equal 'smth',       cfg.device
     assert_equal 1,            cfg.intents
     assert_equal 4,            cfg.voice_api_version
     assert_equal 10,           cfg.rest_api_version
