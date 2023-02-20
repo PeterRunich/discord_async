@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'dry-types'
-
 module DiscordAsync
   class Gateway
     Opcodes = Types::Integer.enum(

@@ -1,17 +1,12 @@
 # frozen_string_literal: true
 
-require 'uri'
-require 'async'
 require 'async/http'
 require 'async/websocket'
+require 'uri'
 require 'logger'
 
 module DiscordAsync
   class Gateway
-    module EncodingTypes
-      JSON = :json
-    end
-
     Identify = Data.define(:token, :properties, :compress, :large_threshold, :shard, :presence, :intents) do
       Properties = Data.define(:os, :browser, :device)
 

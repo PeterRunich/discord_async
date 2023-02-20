@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'dry-types'
-
 # module Types
 #   include Dry.Types()
 #   Event = Types.Constructor(lambda do |event_obj|
