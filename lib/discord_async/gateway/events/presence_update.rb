@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class ActivityButtons < Dry::Struct
         attribute :label, Types::Coercible::String
@@ -28,7 +28,7 @@ module DiscordAsync
 
       class ActivityEmoji < Dry::Struct
         attribute :name, Types::Coercible::String
-        attribute :id, Types::Snowflake
+        attribute :id, Resources::Snowflake
         attribute :animated, Types::Bool
       end
 
@@ -43,7 +43,7 @@ module DiscordAsync
         attribute? :url, Types::Coercible::String.optional
         attribute :created_at, Types::Coercible::Integer.optional
         attribute? :timestamps, ActivityTimestamps
-        attribute? :application_id, Types::Snowflake
+        attribute? :application_id, Resources::Snowflake
         attribute? :details, Types::Coercible::String.optional
         attribute? :state, Types::Coercible::String.optional
         attribute? :emoji, ActivityEmoji.optional
@@ -62,8 +62,8 @@ module DiscordAsync
       end
 
       class PresenceUpdate < Base
-        attribute :user, Resources::PartialUser
-        attribute :guild_id, Types::Snowflake
+        attribute :user, Resources::User::PartialUser
+        attribute :guild_id, Resources::Snowflake
         attribute :status, Types::Coercible::String
         attribute :activities, Types::Array.of(Activity)
         attribute :client_status, ClientStatus

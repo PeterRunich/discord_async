@@ -2,9 +2,9 @@
 
 module DiscordAsync
   module Resources
-    class Channel < StructBase
+    module Channel
       class Overwrite < StructBase
-        attribute :id, Types::Snowflake
+        attribute :id, Snowflake
         attribute :type, Types::Coercible::Integer
         attribute :allow, Types::Coercible::String
         attribute :deny, Types::Coercible::String

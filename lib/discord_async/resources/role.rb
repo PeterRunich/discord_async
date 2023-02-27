@@ -3,7 +3,7 @@
 module DiscordAsync
   module Resources
     class Role < StructBase
-      attribute :id, Types::Snowflake
+      attribute :id, Snowflake
       attribute :name, Types::Coercible::String
       attribute :color, Types::Coercible::Integer
       attribute :hoist, Types::Bool

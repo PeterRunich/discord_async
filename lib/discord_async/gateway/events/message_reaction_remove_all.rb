@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class MessageReactionRemoveAll < Base
-        attribute :channel_id, Types::Snowflake
-        attribute :message_id, Types::Snowflake
-        attribute? :guild_id, Types::Snowflake
+        attribute :channel_id, Resources::Snowflake
+        attribute :message_id, Resources::Snowflake
+        attribute? :guild_id, Resources::Snowflake
       end
     end
   end

@@ -5,6 +5,11 @@ module DiscordAsync
     class Snowflake < StructBase
       attribute :id, Types::Coercible::Integer
 
+      def self.new(attributes)
+        attributes = { id: attributes } unless attributes.is_a? Hash
+        super
+      end
+
       def internal_worker_id
         (id & 0x3E0000) >> 17
       end

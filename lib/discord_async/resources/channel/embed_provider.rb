@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Channel < StructBase
+    module Channel
       class EmbedProvider < StructBase
         attribute? :name, Types::Coercible::String
         attribute? :url, Types::Coercible::String

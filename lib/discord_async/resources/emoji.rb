@@ -3,21 +3,10 @@
 module DiscordAsync
   module Resources
     class Emoji < StructBase
-      attribute :id, Types::Snowflake.optional
+      attribute :id, Snowflake.optional
       attribute :name, Types::String.optional
-      attribute? :roles, Types::Array.of(Types::Snowflake)
-      attribute? :user, User
-      attribute? :require_colons, Types::Bool
-      attribute? :managed, Types::Bool
-      attribute? :animated, Types::Bool
-      attribute? :available, Types::Bool
-    end
-
-    class PartialEmoji < StructBase
-      attribute :id, Types::Snowflake.optional
-      attribute? :name, Types::String.optional
-      attribute? :roles, Types::Array.of(Types::Snowflake)
-      attribute? :user, User
+      attribute? :roles, Types::Array.of(Snowflake)
+      attribute? :user, User::User
       attribute? :require_colons, Types::Bool
       attribute? :managed, Types::Bool
       attribute? :animated, Types::Bool

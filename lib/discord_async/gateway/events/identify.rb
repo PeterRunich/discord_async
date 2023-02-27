@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class IdentifyConnectionProperties < Dry::Struct
         attribute :os, Types::Coercible::String

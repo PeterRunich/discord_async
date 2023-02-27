@@ -15,7 +15,7 @@ module DiscordAsync
         attribute? :privacy_policy_url, Types::Coercible::String
         attribute? :owner, User::PartialUser
         attribute :verify_key, Types::Coercible::String
-        attribute :team, Team
+        attribute :team, Team::Team
         attribute? :guild_id, Snowflake
         attribute? :primary_sku_id, Snowflake
         attribute? :slug, Types::Coercible::String

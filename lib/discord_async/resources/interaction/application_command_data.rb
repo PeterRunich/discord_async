@@ -2,15 +2,15 @@
 
 module DiscordAsync
   module Resources
-    class Interaction < StructBase
+    module Interaction
       class ApplicationCommandData < StructBase
-        attribute :id, Types::Snowflake
+        attribute :id, Snowflake
         attribute :name, Types::Coercible::String
-        attribute :type, ApplicationCommand::ApplicationCommandTypes
+        attribute :type, Application::Command::CommandTypes
         attribute? :resolved, ResolvedData
         attribute? :options, Types::Array.of(ApplicationCommandInteractionDataOption)
-        attribute? :guild_id, Types::Snowflake
-        attribute? :target_id, Types::Snowflake
+        attribute? :guild_id, Snowflake
+        attribute? :target_id, Snowflake
       end
     end
   end

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class ChannelDelete < Base
-        attribute :channel, Resources::Channel
+        attribute :channel, Resources::Channel::Channel
 
         def initialize(attributes)
           super(channel: attributes)

@@ -2,17 +2,17 @@
 
 module DiscordAsync
   module Resources
-    class Channel < StructBase
+    module Channel
       class Message < StructBase
-        attribute :id, Types::Snowflake
-        attribute :channel_id, Types::Snowflake
-        attribute :author, User
+        attribute :id, Snowflake
+        attribute :channel_id, Snowflake
+        attribute :author, User::User
         attribute :content, Types::Coercible::String
         attribute :timestamp, Types::TimestampISO8601
         attribute :edited_timestamp, Types::TimestampISO8601.optional
         attribute :tts, Types::Bool
         attribute :mention_everyone, Types::Bool
-        attribute :mentions, Types::Array.of(User)
+        attribute :mentions, Types::Array.of(User::User)
         attribute :mention_roles, Types::Array.of(Role)
         attribute? :mention_channels, Types::Array.of(ChannelMention)
         attribute :attachments, Types::Array.of(Attachment)
@@ -20,19 +20,19 @@ module DiscordAsync
         attribute? :reactions, Types::Array.of(Reaction)
         attribute? :nonce, Types::Integer | Types::String
         attribute :pinned, Types::Bool
-        attribute? :webhook_id, Types::Snowflake
+        attribute? :webhook_id, Snowflake
         attribute :type, MessageTypes
         attribute? :activity, MessageActivity
-        attribute? :application, PartialApplication
-        attribute? :application_id, Types::Snowflake
+        attribute? :application, Application::PartialApplication
+        attribute? :application_id, Snowflake
         attribute? :message_reference, MessageReference
         attribute? :flags, Types::Coercible::Integer
         attribute? :referenced_message, Message.optional
         attribute? :interaction, Interaction::MessageInteraction
         attribute? :thread, Channel
-        # attribute? :components, TODO: complex check Discord doc
-        attribute? :sticker_items, Types::Array.of(Sticker::StickerItem)
-        attribute? :stickers, Types::Array.of(Sticker)
+        attribute? :components, Types::Array.of(Interaction::Component::ActionRow)
+        attribute? :sticker_items, Types::Array.of(Sticker::Item)
+        attribute? :stickers, Types::Array.of(Sticker::Sticker)
         attribute? :position, Types::Coercible::Integer
         attribute? :role_subscription_data, RoleSubscriptionDataObject
       end

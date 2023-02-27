@@ -4,7 +4,7 @@ module DiscordAsync
   module Resources
     module Application
       module Command
-        class Command
+        class Command < StructBase
           attribute :id, Snowflake
           attribute? :type, Types::Integer.default(1).enum(*CommandTypes.values)
           attribute :application_id, Snowflake

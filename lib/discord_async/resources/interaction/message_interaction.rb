@@ -2,13 +2,13 @@
 
 module DiscordAsync
   module Resources
-    class Interaction < StructBase
+    module Interaction
       class MessageInteraction < StructBase
-        attribute :id, Types::Snowflake
+        attribute :id, Snowflake
         attribute :type, InteractionTypes
         attribute :name, Types::Coercible::String
-        attribute :user, User
-        attribute? :member, Guild::PartialGuildMember
+        attribute :user, User::User
+        attribute? :member, Guild::PartialMember
       end
     end
   end

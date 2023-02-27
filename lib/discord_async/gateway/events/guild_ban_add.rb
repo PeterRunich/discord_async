@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class GuildBanAdd < Base
         transform_keys(&:to_sym)
 
-        attribute :guild_id, Types::Snowflake
-        attribute :user, Resources::User
+        attribute :guild_id, Resources::Snowflake
+        attribute :user, Resources::User::User
 
         def initialize(attributes)
           attributes.transform_keys!(&:to_sym)

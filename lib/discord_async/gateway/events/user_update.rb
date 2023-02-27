@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class UserUpdate < Base
-        attribute :user, Resources::User
+        attribute :user, Resources::User::User
 
         def initialize(attributes)
           super(user: attributes)

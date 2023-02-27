@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class UpdateVoiceState < Base
-        attribute :guild_id, Types::Snowflake
-        attribute :channel_id, Types::Snowflake.optional
+        attribute :guild_id, Resources::Snowflake
+        attribute :channel_id, Resources::Snowflake.optional
         attribute :self_mute, Types::Bool
         attribute :self_deaf, Types::Bool
       end

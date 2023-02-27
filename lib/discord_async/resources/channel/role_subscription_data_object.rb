@@ -2,9 +2,9 @@
 
 module DiscordAsync
   module Resources
-    class Channel < StructBase
+    module Channel
       class RoleSubscriptionDataObject < StructBase
-        attribute :role_subscription_listing_id, Types::Snowflake
+        attribute :role_subscription_listing_id, Snowflake
         attribute :tier_name, Types::Coercible::String
         attribute :total_months_subscribed, Types::Coercible::Integer
         attribute :is_renewal, Types::Bool

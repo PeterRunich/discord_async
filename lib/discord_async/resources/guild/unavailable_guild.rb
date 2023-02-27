@@ -2,9 +2,9 @@
 
 module DiscordAsync
   module Resources
-    class Guild < StructBase
+    module Guild
       class UnavailableGuild < StructBase
-        attribute :id, Types::Snowflake
+        attribute :id, Snowflake
         attribute? :unavailable, Types::Bool
       end
     end

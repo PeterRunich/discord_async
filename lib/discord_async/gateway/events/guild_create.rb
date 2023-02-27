@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class GuildCreate < Base
         class AvailableGuild < Dry::Struct
-          attribute :guild, Resources::Guild
+          attribute :guild, Resources::Guild::Guild
 
           attribute :joined_at, Types::TimestampISO8601
           attribute :large, Types::Bool
           attribute? :unavailable, Types::Bool
           attribute :member_count, Types::Coercible::Integer
-          attribute :voice_states, Types::Array.of(Resources::Voice::VoiceState)
-          attribute :members, Types::Array.of(Resources::Guild::GuildMember)
-          attribute :channels, Types::Array.of(Resources::Channel)
-          attribute :threads, Types::Array.of(Resources::Channel)
+          attribute :voice_states, Types::Array.of(Resources::Voice::State)
+          attribute :members, Types::Array.of(Resources::Guild::Member)
+          attribute :channels, Types::Array.of(Resources::Channel::Channel)
+          attribute :threads, Types::Array.of(Resources::Channel::Channel)
           attribute :presences, Types::Array.of(PresenceUpdate)
           attribute :stage_instances, Types::Array.of(Resources::StageInstance)
-          attribute :guild_scheduled_events, Resources::Guild::ScheduledEvent::GuildScheduledEvent
+          attribute :guild_scheduled_events, Resources::Guild::ScheduledEvent::ScheduledEvent
         end
 
         attribute :payload, Resources::Guild::UnavailableGuild | AvailableGuild

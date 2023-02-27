@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class IntegrationCreate < Base
-        attribute :integration, Resources::Guild::Integration
-        attribute :guild_id, Types::Snowflake
+        attribute :integration, Resources::Guild::Integration::Integration
+        attribute :guild_id, Resources::Snowflake
 
         def initialize(attributes)
           attributes.transform_keys!(&:to_sym)

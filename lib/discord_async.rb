@@ -3,7 +3,10 @@
 require 'zeitwerk'
 require 'async'
 
-Zeitwerk::Loader.for_gem.setup
+loader = Zeitwerk::Loader.for_gem
+loader.inflector.inflect 'rest' => 'REST', 'udp' => 'UDP'
+loader.setup
+loader.eager_load
 
 module DiscordAsync
 end

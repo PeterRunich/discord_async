@@ -2,10 +2,10 @@
 
 module DiscordAsync
   module Resources
-    class Interaction < StructBase
+    module Interaction
       class ApplicationCommandInteractionDataOption < StructBase
         attribute :name, Types::Coercible::String
-        attribute :type, ApplicationCommandOption::ApplicationCommandOptionTypes
+        attribute :type, Application::Command::OptionTypes
         attribute? :value, Types::String | Types::Integer | Types::Float | Types::Bool
         attribute? :options, Types::Array.of(ApplicationCommandInteractionDataOption)
         attribute? :focused, Types::Bool

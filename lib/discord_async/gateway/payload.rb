@@ -10,14 +10,14 @@
 # end
 
 module DiscordAsync
-  class Gateway
-    class Payload < Dry::Struct
+  module Gateway
+    class Payload < StructBase
       transform_keys(&:to_sym)
 
       attribute :op, Types::Coercible::Integer
-      attribute :d, Types.Nominal(Events::Base)
-      attribute :s, Types::Coercible::Integer.optional
-      attribute :t, Types::Coercible::String.optional
+      attribute? :d, Types.Nominal(Events::Base).optional
+      attribute? :s, Types::Coercible::Integer.optional
+      attribute? :t, Types::Coercible::Symbol.optional
 
       def initialize(attributes)
         attributes.transform_keys!(&:to_sym)
@@ -34,7 +34,7 @@ module DiscordAsync
                          when Opcodes[:request_guild_members] then Events::RequestGuildMembers.new(attributes[:d])
                          when Opcodes[:invalid_session] then Events::InvalidSession.new(attributes[:d])
                          when Opcodes[:hello] then Events::Hello.new(attributes[:d])
-                         when Opcodes[:heartbeat_ack] then Events::HeartbeatAck.new(attributes[:d])
+                         when Opcodes[:heartbeat_ack] then nil
                          else
                            raise
                          end

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class MessageDeleteBulk < Base
-        attribute :ids, Types::Array.of(Types::Snowflake)
-        attribute :channel_id, Types::Snowflake
-        attribute? :guild_id, Types::Snowflake
+        attribute :ids, Types::Array.of(Resources::Snowflake)
+        attribute :channel_id, Resources::Snowflake
+        attribute? :guild_id, Resources::Snowflake
       end
     end
   end

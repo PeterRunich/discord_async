@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Guild < StructBase
+    module Guild
       class WelcomeScreen < StructBase
         attribute :description, Types::Coercible::String.optional
         attribute :welcome_channels, Types::Array.of(WelcomeScreenChannel)

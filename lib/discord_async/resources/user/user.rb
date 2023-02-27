@@ -4,7 +4,7 @@ module DiscordAsync
   module Resources
     module User
       class User < StructBase
-        attribute :id, Types::Snowflake
+        attribute :id, Snowflake
         attribute :username, Types::Coercible::String
         attribute :discriminator, Types::Coercible::String
         attribute? :banner_color, Types::Coercible::String.optional

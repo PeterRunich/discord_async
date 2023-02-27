@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Channel < StructBase
+    module Channel
       class MessageActivity < StructBase
         MessageActivityTypes = Types::Integer.enum(1 => :join, 2 => :spectate, 3 => :listen, 5 => :join_request)
 

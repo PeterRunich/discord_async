@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Channel < StructBase
+    module Channel
       class Reaction < StructBase
         attribute :count, Types::Coercible::Integer
         attribute :me, Types::Bool

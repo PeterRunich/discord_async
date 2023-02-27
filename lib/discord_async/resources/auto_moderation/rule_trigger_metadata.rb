@@ -4,7 +4,7 @@ module DiscordAsync
   module Resources
     module AutoModeration
       class RuleTriggerMetadata < StructBase
-        KeywordPresetTypes = Types::Integer.enum(1 => :profanity, 2 => :sexual_content, 3 => :slurs)
+        KeywordPresetTypes = Types::Coercible::Integer.enum(1 => :profanity, 2 => :sexual_content, 3 => :slurs)
 
         attribute :keyword_filter, Types::Array.of(Types::Coercible::String)
         attribute :regex_patterns, Types::Array.of(Types::Coercible::String)

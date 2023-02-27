@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class GuildScheduledEventUpdate < Base
-        attribute :guild_scheduled_event, Resources::Guild::ScheduledEvent::GuildScheduledEvent
+        attribute :guild_scheduled_event, Resources::Guild::ScheduledEvent::ScheduledEvent
       end
     end
   end

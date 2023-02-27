@@ -1,4 +1,22 @@
 # frozen_string_literal: true
 
-Invite = Data.define(:code, :guild, :channel, :inviter, :target_type, :target_user, :target_application,
-                     :approximate_presence_count, :approximate_member_count, :expires_at, :stage_instance, :guild_scheduled_event)
+module DiscordAsync
+  module Resources
+    module Invite
+      class Invite < StructBase
+        attribute :code, Types::Coercible::String
+        attribute? :guild, Guild::PartialGuild
+        attribute :channel, Channel::Channel.optional # partial channel
+        attribute? :inviter, User::User
+        attribute? :target_type, TargetTypes
+        attribute? :target_user, User::User
+        attribute? :target_application, Application::PartialApplication
+        attribute? :approximate_presence_count, Types::Coercible::Integer
+        attribute? :approximate_member_count, Types::Coercible::Integer
+        attribute? :expires_at, Types::TimestampISO8601.optional
+        attribute? :stage_instance, StageInstance
+        attribute? :guild_scheduled_event, Guild::ScheduledEvent
+      end
+    end
+  end
+end

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class GuildEmojisUpdate < Base
-        attribute :guild_id, Types::Snowflake
+        attribute :guild_id, Resources::Snowflake
         attribute :emojis, Types::Array.of(Resources::Emoji)
       end
     end

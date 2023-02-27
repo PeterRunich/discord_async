@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Channel < StructBase
+    module Channel
       class EmbedThumbnail < StructBase
         attribute :url, Types::Coercible::String
         attribute? :proxy_url, Types::Coercible::String

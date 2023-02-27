@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class GuildMemberRemove < Base
-        attribute :guild_id, Types::Snowflake
-        attribute :user, Resources::User
+        attribute :guild_id, Resources::Snowflake
+        attribute :user, Resources::User::User
       end
     end
   end

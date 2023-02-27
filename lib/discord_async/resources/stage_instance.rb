@@ -5,13 +5,13 @@ module DiscordAsync
     class StageInstance < StructBase
       PrivacyLevel = Types::Integer.enum(1 => :public, 2 => :guild_only)
 
-      attribute :id, Types::Snowflake
-      attribute :guild_id, Types::Snowflake
-      attribute :channel_id, Types::Snowflake
+      attribute :id, Snowflake
+      attribute :guild_id, Snowflake
+      attribute :channel_id, Snowflake
       attribute :topic, Types::Coercible::String
       attribute :privacy_level, PrivacyLevel
       attribute :discoverable_disabled, Types::Bool
-      attribute :guild_scheduled_event_id, Types::Snowflake.optional
+      attribute :guild_scheduled_event_id, Snowflake.optional
     end
   end
 end

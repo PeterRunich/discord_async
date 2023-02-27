@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class MessageCreate < Base
-        attribute? :guild_id, Types::Snowflake
-        attribute? :member, Resources::Guild::GuildMember
+        attribute? :guild_id, Resources::Snowflake
+        attribute? :member, Resources::Guild::Member
         attribute :message, Resources::Channel::Message
 
         def self.new(attributes)

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class AutoModerationRuleDelete < Base
-        attribute :auto_moderation_rule, Resources::AutoModeration::AutoModerationRule
+        attribute :auto_moderation_rule, Resources::AutoModeration::Rule
 
         def initialize(attributes)
           super(auto_moderation_rule: attributes)

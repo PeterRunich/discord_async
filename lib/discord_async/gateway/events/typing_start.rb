@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class TypingStart < Base
-        attribute :channel_id, Types::Snowflake
-        attribute? :guild_id, Types::Snowflake
-        attribute :user_id, Types::Snowflake
+        attribute :channel_id, Resources::Snowflake
+        attribute? :guild_id, Resources::Snowflake
+        attribute :user_id, Resources::Snowflake
         attribute :timestamp, Types::Coercible::Integer
-        attribute? :member, Resources::Guild::GuildMember
+        attribute? :member, Resources::Guild::Member
       end
     end
   end

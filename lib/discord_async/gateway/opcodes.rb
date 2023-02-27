@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     Opcodes = Types::Integer.enum(
       0 => :dispatch,
       1 => :heartbeat,

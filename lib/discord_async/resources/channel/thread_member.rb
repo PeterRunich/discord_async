@@ -2,13 +2,13 @@
 
 module DiscordAsync
   module Resources
-    class Channel < StructBase
+    module Channel
       class ThreadMember < StructBase
-        attribute? :id, Types::Snowflake
-        attribute? :user_id, Types::Snowflake
+        attribute? :id, Snowflake
+        attribute? :user_id, Snowflake
         attribute :join_timestamp, Types::TimestampISO8601
         attribute :flags, Types::Coercible::Integer
-        attribute? :member, Resources::Guild::GuildMember
+        attribute? :member, Resources::Guild::Member
       end
     end
   end

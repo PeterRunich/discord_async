@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class ThreadMemberUpdate < Base
         attribute :thread_member, Resources::Channel::ThreadMember
-        attribute :guild_id, Types::Snowflake
+        attribute :guild_id, Resources::Snowflake
 
         def initialize(attributes)
           attributes.transform_keys!(&:to_sym)

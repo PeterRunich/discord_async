@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Observer
-    def initialize = @subscribers = []
+  module Gateway
+    class Observer
+      def initialize = @subscribers = []
 
-    def subscribe(subscriber) = @subscribers << subscriber
+      def subscribe(subscriber) = @subscribers << subscriber
 
-    def unsubscribe(subscriber) = @subscribers.delete subscriber
+      def unsubscribe(subscriber) = @subscribers.delete subscriber
 
-    def notify(event) = @subscribers.each { |sub| sub.call event }
+      def notify(event) = @subscribers.each { _1[event] }
+    end
   end
 end

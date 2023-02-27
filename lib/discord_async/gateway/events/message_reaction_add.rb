@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class MessageReactionAdd < Base
-        attribute :user_id, Types::Snowflake
-        attribute :channel_id, Types::Snowflake
-        attribute :message_id, Types::Snowflake
-        attribute? :guild_id, Types::Snowflake
-        attribute? :member, Resources::Guild::GuildMember
+        attribute :user_id, Resources::Snowflake
+        attribute :channel_id, Resources::Snowflake
+        attribute :message_id, Resources::Snowflake
+        attribute? :guild_id, Resources::Snowflake
+        attribute? :member, Resources::Guild::Member
         attribute :emoji, Resources::PartialEmoji
       end
     end

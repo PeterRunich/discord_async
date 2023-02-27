@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Resources
-    class Channel < StructBase
+    module Channel
       class ThreadMetadata < StructBase
         attribute :archived, Types::Bool
         attribute :auto_archive_duration, Types::Coercible::Integer

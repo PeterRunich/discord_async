@@ -1,3 +1,12 @@
 # frozen_string_literal: true
 
-Ban = Data.define(:reason, :user)
+module DiscordAsync
+  module Resources
+    module Guild
+      class Ban < StructBase
+        attribute :reason, Types::Coercible::String.optional
+        attribute :user, User::User
+      end
+    end
+  end
+end

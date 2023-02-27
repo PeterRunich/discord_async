@@ -2,12 +2,12 @@
 
 module DiscordAsync
   module Resources
-    class Channel < StructBase
+    module Channel
       class ForumTag < StructBase
-        attribute :id, Types::Snowflake
+        attribute :id, Snowflake
         attribute :name, Types::Coercible::String
         attribute :moderated, Types::Bool
-        attribute :emoji_id, Types::Snowflake.optional
+        attribute :emoji_id, Snowflake.optional
         attribute :emoji_name, Types::Coercible::String.optional
       end
     end

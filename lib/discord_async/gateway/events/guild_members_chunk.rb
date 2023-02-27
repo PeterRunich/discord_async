@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class GuildMembersChunk < Base
-        attribute :guild_id, Types::Snowflake
-        attribute :members, Types::Array.of(Resources::Guild::GuildMember)
+        attribute :guild_id, Resources::Snowflake
+        attribute :members, Types::Array.of(Resources::Guild::Member)
         attribute :chunk_index, Types::Coercible::Integer
         attribute :chunk_count, Types::Coercible::Integer
         attribute? :not_found, Types::Array.of(Types::Coercible::String)

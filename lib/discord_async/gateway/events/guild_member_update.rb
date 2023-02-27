@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class GuildMemberUpdate < Base
-        attribute :guild_id, Types::Snowflake
-        attribute :roles, Types::Array.of(Types::Snowflake)
-        attribute :user, Resources::User
+        attribute :guild_id, Resources::Snowflake
+        attribute :roles, Types::Array.of(Resources::Snowflake)
+        attribute :user, Resources::User::User
         attribute? :nick, Types::Coercible::String.optional
         attribute :avatar, Types::Coercible::String.optional
         attribute :joined_at, Types::TimestampISO8601.optional

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     CompressTypes = Types::Coercible::Symbol.enum(:zlib_stream)
   end
 end

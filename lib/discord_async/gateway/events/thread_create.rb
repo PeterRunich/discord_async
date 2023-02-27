@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module DiscordAsync
-  class Gateway
+  module Gateway
     module Events
       class ThreadCreate < Base
-        attribute :channel, Resources::Channel
+        attribute :channel, Resources::Channel::Channel
         attribute? :newly_created, Types::Bool
 
         def initialize(attributes)
