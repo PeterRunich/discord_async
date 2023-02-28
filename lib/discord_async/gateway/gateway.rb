@@ -1,40 +1,24 @@
 # frozen_string_literal: true
 
-require 'async/http'
 require 'async/websocket'
 require 'uri'
-require 'logger'
 
 module DiscordAsync
   module Gateway
     class Gateway
-      Identify = Data.define(:token, :properties, :compress, :large_threshold, :shard, :presence, :intents) do
-        Properties = Data.define(:os, :browser, :device)
-
-        def initialize(token:, properties:, intents:, compress: false, large_threshold: 50, shard: nil, presence: nil)
-          super(token:, properties: Properties[**properties], compress:, large_threshold:, shard:, presence:, intents:)
-        end
-
-        def to_h
-          super.tap do |hash|
-            hash[:properties] = properties.to_h
-          end
-        end
-      end
-
       attr_reader :event_observer, :event_repeater
 
       def initialize(token)
         @token = token
         @event_observer = EventObserver.new
-        @logger = Logger.new($stdout)
-
         @event_repeater = Observer.new
+
+        @last_sequence_number = nil
       end
 
       # Public interface life cycle
       def start(raw_url, version, encoding, identify_data)
-        identify_data = Identify[**identify_data]
+        identify_data = Events::Send::Identify.new(identify_data)
 
         Async do
           started = Async::Condition.new
@@ -61,13 +45,11 @@ module DiscordAsync
 
       def stop
         @connection.close
-
-        @logger.debug 'stop ended'
       end
 
       # Init
       def establish_connection(url, ws_client: Async::WebSocket::Client)
-        endpoint = Async::HTTP::Endpoint.parse url, alpn_protocols: Async::HTTP::Protocol::HTTP11.names
+        endpoint = Async::HTTP::Endpoint.parse url, alpn_protocols: ['http/1.1']
         @connection = ws_client.connect endpoint
       end
 
@@ -75,12 +57,13 @@ module DiscordAsync
         Async do
           while (msg = @connection.read)
             payload = Payload.new(JSON.parse(msg))
-            @logger.debug payload
+            LOGGER.info payload
+
+            @last_sequence_number = payload.s unless payload.s.nil?
 
             event_observer.notify payload
             event_repeater.notify payload
           end
-          @logger.debug 'start_receive_messages ended'
         end
       end
 
@@ -93,7 +76,6 @@ module DiscordAsync
             sleep heartbeat_interval
             send_heart_beat
           end
-          @logger.debug 'start_heart_beat_loop ended'
         end
       end
 
@@ -106,19 +88,14 @@ module DiscordAsync
       def send_heart_beat
         return if @connection.closed?
 
-        @connection.write({ op: 1, d: nil }.to_json)
+        @connection.write SendPayload.new(op: Opcodes[:heartbeat], d: @last_sequence_number).to_json
         @connection.flush
       end
 
       def send_identify(identify_data)
         return if @connection.closed?
 
-        data = {
-          op: 2,
-          d: identify_data.to_h.compact
-        }.to_json
-
-        @connection.write data
+        @connection.write SendPayload.new(op: Opcodes[:identify], d: identify_data).to_json
         @connection.flush
       end
 
