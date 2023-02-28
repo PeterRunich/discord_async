@@ -2,7 +2,7 @@
 
 module DiscordAsync
   module Gateway
-    Opcodes = Types::Integer.enum(
+    Opcodes = Types::Coercible::Integer.enum(
       0 => :dispatch,
       1 => :heartbeat,
       2 => :identify,
