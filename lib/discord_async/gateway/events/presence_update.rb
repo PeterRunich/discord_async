@@ -3,41 +3,42 @@
 module DiscordAsync
   module Gateway
     module Events
-      class ActivityButtons < Dry::Struct
+      # TODO: All classes maybe useless, instead use nested attributes
+      class ActivityButtons < StructBase
         attribute :label, Types::Coercible::String
         attribute :url, Types::Coercible::String
       end
 
-      class ActivitySecrets < Dry::Struct
+      class ActivitySecrets < StructBase
         attribute? :join, Types::Coercible::String
         attribute? :spectate, Types::Coercible::String
         attribute? :match, Types::Coercible::String
       end
 
-      class ActivityAssets < Dry::Struct
+      class ActivityAssets < StructBase
         attribute? :large_image, Types::Coercible::String
         attribute? :large_text, Types::Coercible::String
         attribute? :small_image, Types::Coercible::String
         attribute? :small_text, Types::Coercible::String
       end
 
-      class ActivityParty < Dry::Struct
+      class ActivityParty < StructBase
         attribute? :id, Types::Coercible::String
         attribute? :size, Types::Array.of(Types::Coercible::Integer)
       end
 
-      class ActivityEmoji < Dry::Struct
+      class ActivityEmoji < StructBase
         attribute :name, Types::Coercible::String
         attribute :id, Resources::Snowflake
         attribute :animated, Types::Bool
       end
 
-      class ActivityTimestamps < Dry::Struct
+      class ActivityTimestamps < StructBase
         attribute? :start, Types::Coercible::Integer
         attribute? :end, Types::Coercible::Integer
       end
 
-      class Activity < Dry::Struct
+      class Activity < StructBase
         attribute :name, Types::Coercible::String
         attribute :type, Types::Coercible::Integer
         attribute? :url, Types::Coercible::String.optional
@@ -55,7 +56,7 @@ module DiscordAsync
         attribute? :buttons, Types::Array.of(ActivityButtons)
       end
 
-      class ClientStatus < Dry::Struct
+      class ClientStatus < StructBase
         attribute? :desktop, Types::Coercible::String
         attribute? :mobile, Types::Coercible::String
         attribute? :web, Types::Coercible::String
