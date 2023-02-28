@@ -8,7 +8,7 @@ module DiscordAsync
         attribute? :newly_created, Types::Bool
 
         def initialize(attributes)
-          attributes.transform_keys!(&:to_sym)
+          attributes = attributes.transform_keys(&:to_sym)
 
           super(channel: attributes.exclude(:newly_created), newly_created: attributes[:newly_created])
         end

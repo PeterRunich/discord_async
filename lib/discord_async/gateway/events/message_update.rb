@@ -10,7 +10,7 @@ module DiscordAsync
         attribute :message, Resources::Channel::Message
 
         def initialize(attributes)
-          attributes.transform_keys!(&:to_sym)
+          attributes = attributes.transform_keys(&:to_sym)
 
           super(guild_id: attributes[:guild_id], member: attributes[:member], mentions: attributes[:mentions], message: attributes.exclude(
             :guild_id, :member, :mentions

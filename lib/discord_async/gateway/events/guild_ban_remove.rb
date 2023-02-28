@@ -10,7 +10,7 @@ module DiscordAsync
         attribute :user, Resources::User::User
 
         def initialize(attributes)
-          attributes.transform_keys!(&:to_sym)
+          attributes = attributes.transform_keys(&:to_sym)
 
           super(user: attributes.exclude(:guild_id), guild_id: attributes[:guild_id])
         end

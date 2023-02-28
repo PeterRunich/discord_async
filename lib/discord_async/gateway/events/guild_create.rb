@@ -4,7 +4,7 @@ module DiscordAsync
   module Gateway
     module Events
       class GuildCreate < Base
-        class AvailableGuild < Dry::Struct
+        class AvailableGuild < StructBase
           attribute :guild, Resources::Guild::Guild
 
           attribute :joined_at, Types::TimestampISO8601
@@ -23,7 +23,7 @@ module DiscordAsync
         attribute :payload, Resources::Guild::UnavailableGuild | AvailableGuild
 
         def self.new(attributes)
-          attributes.transform_keys!(&:to_sym)
+          attributes = attributes.transform_keys(&:to_sym)
 
           if attributes.fetch(:unavailable, false)
             arguments = {

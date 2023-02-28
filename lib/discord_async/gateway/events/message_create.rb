@@ -9,7 +9,7 @@ module DiscordAsync
         attribute :message, Resources::Channel::Message
 
         def self.new(attributes)
-          attributes.transform_keys!(&:to_sym)
+          attributes = attributes.transform_keys(&:to_sym)
 
           super(
             guild_id: attributes[:guild_id],
