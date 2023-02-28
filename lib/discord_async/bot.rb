@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'logger'
 require 'json'
 
 module DiscordAsync
@@ -43,7 +42,7 @@ module DiscordAsync
       @voice
     end
 
-    def start
+    def start(large_threshold: nil)
       Async do
         @rest_client = REST::Client.new(
           config[:token],
@@ -62,9 +61,9 @@ module DiscordAsync
             device: config[:device]
           },
           intents: config[:intents],
-          compress: config[:compress],
-          large_threshold: config[:large_threshold]
-        }
+          compress: !config[:compress].nil?,
+          large_threshold: large_threshold
+        }.compact!
 
         @gateway.start(
           JSON.parse(@rest_client.get_gateway.read)['url'],
