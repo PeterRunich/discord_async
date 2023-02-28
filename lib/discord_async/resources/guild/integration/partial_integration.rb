@@ -19,7 +19,7 @@ module DiscordAsync
           attribute? :synced_at, Types::TimestampISO8601
           attribute? :subscriber_count, Types::Coercible::Integer
           attribute? :revoked, Types::Bool
-          attribute? :application, Resources::Application::Application
+          attribute? :application, Application
           attribute? :scopes, Types::Array.of(Types::Coercible::String)
         end
       end

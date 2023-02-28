@@ -8,7 +8,7 @@ module DiscordAsync
         attribute? :user_id, Snowflake
         attribute :join_timestamp, Types::TimestampISO8601
         attribute :flags, Types::Coercible::Integer
-        attribute? :member, Resources::Guild::Member
+        attribute? :member, Guild::Member
       end
     end
   end
