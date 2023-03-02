@@ -7,10 +7,10 @@ module DiscordAsync
         attribute :thread_member, Resources::Channel::ThreadMember
         attribute :guild_id, Resources::Snowflake
 
-        def initialize(attributes)
+        def self.new(attributes)
           attributes = attributes.transform_keys(&:to_sym)
 
-          super(channel: attributes.exclude(:guild_id), guild_id: attributes[:guild_id])
+          super(channel: attributes.except(:guild_id), guild_id: attributes[:guild_id])
         end
       end
     end

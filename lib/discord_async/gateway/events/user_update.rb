@@ -6,7 +6,7 @@ module DiscordAsync
       class UserUpdate < Base
         attribute :user, Resources::User::User
 
-        def initialize(attributes)
+        def self.new(attributes)
           super(user: attributes)
         end
       end

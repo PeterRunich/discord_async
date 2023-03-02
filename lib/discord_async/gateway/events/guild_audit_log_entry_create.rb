@@ -6,7 +6,7 @@ module DiscordAsync
       class GuildAuditLogEntryCreate < Base
         attribute :audit_log_entry_object, Resources::AuditLog::Entry
 
-        def initialize(attributes)
+        def self.new(attributes)
           super(audit_log_entry_object: attributes)
         end
       end

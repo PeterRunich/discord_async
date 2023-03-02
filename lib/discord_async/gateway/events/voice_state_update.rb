@@ -6,9 +6,7 @@ module DiscordAsync
       class VoiceStateUpdate < Base
         attribute :voice_state, Resources::Voice::State
 
-        def initialize(attributes)
-          super(voice_state: attributes)
-        end
+        def self.new(attributes) = super(voice_state: attributes)
       end
     end
   end

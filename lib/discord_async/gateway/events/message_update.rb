@@ -6,15 +6,18 @@ module DiscordAsync
       class MessageUpdate < Base
         attribute? :guild_id, Resources::Snowflake
         attribute? :member, Resources::Guild::Member
-        attribute :mentions, Types::Array.of(Resources::User::User)
-        attribute :message, Resources::Channel::Message
+        attribute :message, Resources::Channel::PartialMessage
 
-        def initialize(attributes)
+        def self.new(attributes)
           attributes = attributes.transform_keys(&:to_sym)
 
-          super(guild_id: attributes[:guild_id], member: attributes[:member], mentions: attributes[:mentions], message: attributes.exclude(
-            :guild_id, :member, :mentions
-          ))
+          attributes = {
+            guild_id: attributes[:guild_id],
+            member: attributes[:member],
+            message: attributes.except(:guild_id, :member)
+          }.compact
+
+          super
         end
       end
     end

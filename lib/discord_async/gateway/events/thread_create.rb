@@ -7,10 +7,10 @@ module DiscordAsync
         attribute :channel, Resources::Channel::Channel
         attribute? :newly_created, Types::Bool
 
-        def initialize(attributes)
+        def self.new(attributes)
           attributes = attributes.transform_keys(&:to_sym)
 
-          super(channel: attributes.exclude(:newly_created), newly_created: attributes[:newly_created])
+          super(channel: attributes.except(:newly_created), newly_created: attributes[:newly_created])
         end
       end
     end

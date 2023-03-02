@@ -7,10 +7,10 @@ module DiscordAsync
         attribute :integration, Resources::Guild::Integration::Integration
         attribute :guild_id, Resources::Snowflake
 
-        def initialize(attributes)
+        def self.new(attributes)
           attributes = attributes.transform_keys(&:to_sym)
 
-          super(integration: attributes.exclude(:guild_id), guild_id: attributes[:guild_id])
+          super(integration: attributes.except(:guild_id), guild_id: attributes[:guild_id])
         end
       end
     end

@@ -6,9 +6,7 @@ module DiscordAsync
       class ChannelCreate < Base
         attribute :channel, Resources::Channel::Channel
 
-        def initialize(attributes)
-          super(channel: attributes)
-        end
+        def self.new(attributes) = super(channel: attributes)
       end
     end
   end

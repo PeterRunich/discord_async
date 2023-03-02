@@ -6,9 +6,7 @@ module DiscordAsync
       class ApplicationCommandPermissionsUpdate < Base
         attribute :application_command_permissions, Resources::Application::Command::Permissions
 
-        def initialize(attributes)
-          super(application_command_permissions: attributes)
-        end
+        def self.new(attributes) = super(application_command_permissions: attributes)
       end
     end
   end

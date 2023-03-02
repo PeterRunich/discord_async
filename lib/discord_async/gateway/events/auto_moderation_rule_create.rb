@@ -6,9 +6,7 @@ module DiscordAsync
       class AutoModerationRuleCreate < Base
         attribute :auto_moderation_rule, Resources::AutoModeration::Rule
 
-        def initialize(attributes)
-          super(auto_moderation_rule: attributes)
-        end
+        def self.new(attributes) = super(auto_moderation_rule: attributes)
       end
     end
   end

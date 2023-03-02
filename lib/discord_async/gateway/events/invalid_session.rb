@@ -6,8 +6,8 @@ module DiscordAsync
       class InvalidSession < Base
         attribute :value, Types::Bool
 
-        def initialize(value)
-          super(value:)
+        def self.new(value_arg=nil, value: nil)
+          super(value_arg || value)
         end
 
         def resumable?

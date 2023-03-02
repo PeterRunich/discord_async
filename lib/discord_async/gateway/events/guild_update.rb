@@ -6,9 +6,7 @@ module DiscordAsync
       class GuildUpdate < Base
         attribute :guild, Resources::Guild::Guild
 
-        def initialize(attributes)
-          super(guild: attributes)
-        end
+        def self.new(attributes) = super(guild: attributes)
       end
     end
   end

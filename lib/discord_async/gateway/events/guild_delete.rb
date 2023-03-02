@@ -6,7 +6,7 @@ module DiscordAsync
       class GuildDelete < Base
         attribute :unavailable_guild, Resources::Guild::UnavailableGuild
 
-        def initialize(attributes)
+        def self.new(attributes)
           super(unavailable_guild: attributes)
         end
       end

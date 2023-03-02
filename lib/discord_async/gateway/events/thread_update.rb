@@ -6,7 +6,7 @@ module DiscordAsync
       class ThreadUpdate < Base
         attribute :channel, Resources::Channel::Channel
 
-        def initialize(attributes)
+        def self.new(attributes)
           super(channel: attributes)
         end
       end
