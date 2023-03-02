@@ -7,7 +7,7 @@ module DiscordAsync
         attribute :id, Snowflake
         attribute :name, Types::Coercible::String
         attribute :icon, Types::Coercible::String.optional
-        attribute :icon_hash, Types::Coercible::String.optional
+        attribute? :icon_hash, Types::Coercible::String.optional
         attribute :splash, Types::Coercible::String.optional
         attribute :discovery_splash, Types::Coercible::String.optional
         attribute? :owner, Types::Bool
@@ -42,7 +42,7 @@ module DiscordAsync
         attribute? :approximate_presence_count, Types::Coercible::Integer
         attribute? :welcome_screen, WelcomeScreen
         attribute :nsfw_level, Types::Coercible::Integer
-        attribute? :stickers, Sticker::Sticker
+        attribute? :stickers, Types::Array.of(Sticker::Sticker)
         attribute :premium_progress_bar_enabled, Types::Bool
       end
     end

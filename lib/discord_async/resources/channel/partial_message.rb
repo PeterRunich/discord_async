@@ -6,13 +6,13 @@ module DiscordAsync
       class PartialMessage < StructBase
         attribute :id, Snowflake
         attribute? :channel_id, Snowflake
-        attribute? :author, User
+        attribute? :author, User::User
         attribute? :content, Types::Coercible::String
         attribute? :timestamp, Types::TimestampISO8601
         attribute? :edited_timestamp, Types::TimestampISO8601.optional
         attribute? :tts, Types::Bool
         attribute? :mention_everyone, Types::Bool
-        attribute? :mentions, Types::Array.of(User)
+        attribute? :mentions, Types::Array.of(User::User)
         attribute? :mention_roles, Types::Array.of(Role)
         attribute? :mention_channels, Types::Array.of(ChannelMention)
         attribute? :attachments, Types::Array.of(Attachment)
