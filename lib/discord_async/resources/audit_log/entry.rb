@@ -9,7 +9,7 @@ module DiscordAsync
         attribute :user_id, Snowflake.optional
         attribute :id, Snowflake
         attribute :action_type, EventTypes
-        attribute? :options, OptionalAuditEntry
+        attribute? :options, OptionalAuditEntryInfo
         attribute? :reason, Types::Coercible::String
       end
     end
