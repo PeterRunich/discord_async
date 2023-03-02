@@ -19,6 +19,7 @@ module DiscordAsync
           when Opcodes[:invalid_session] then Events::InvalidSession
           when Opcodes[:hello] then Events::Hello
           when Opcodes[:heartbeat_ack] then Events::HeartbeatAck
+          when Opcodes[:heartbeat] then Events::Heartbeat
           else raise
           end.new(attributes[:d])
 
